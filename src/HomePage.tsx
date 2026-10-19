@@ -3,10 +3,10 @@ import { ArrowIcon } from './ArrowIcon';
 import { ContactCallout } from './ContactCallout';
 
 const services = [
-  ['Finansal durum analizi', 'Borç yapısı, ödeme takvimi ve nakit akışının birlikte incelenmesi.'],
-  ['Yapılandırma planı', 'İşletmenin faaliyet döngüsünü esas alan ödeme senaryolarının hazırlanması.'],
-  ['Başvuru hazırlığı', 'Finansal projeksiyonların ve başvuru dosyasının bir araya getirilmesi.'],
-  ['Müzakere & takip', 'Alacaklı kuruluşlarla görüşmelerin ve planın uygulanmasının takibi.'],
+  ['Analiz', 'Borç yapısı, ödeme takvimi ve nakit akışının birlikte incelenmesi.'],
+  ['Planlama', 'İşletmenin faaliyet döngüsünü esas alan ödeme senaryolarının hazırlanması.'],
+  ['Başvuru', 'Finansal projeksiyonların ve başvuru dosyasının bir araya getirilmesi.'],
+  ['Takip', 'Alacaklı kuruluşlarla görüşmelerin ve planın uygulanmasının takibi.'],
 ];
 const questions = [
   ['FYY nedir?', 'Finansal yeniden yapılandırma; ticari kredi borçlarının, ilgili finansal kuruluşlarla çerçeve anlaşmaları kapsamında yeniden düzenlenmesidir. Amaç, işletmenin geri ödeme kapasitesi ile borç takvimini uyumlu hale getirmektir.'],
@@ -36,9 +36,21 @@ export function HomePage() {
           <div className="balance-art reveal" role="img" aria-label="Denge ve devamlılığı temsil eden soyut mimari kompozisyon; finansal performans grafiği değildir."><span className="eyebrow">SAD / PERSPEKTİF</span><div className="balance-structure" aria-hidden="true"><div className="balance-circle"/><div className="balance-beam"/><div className="balance-pillar"/><div className="balance-ground"/></div><div className="balance-caption"><span>DENGE,<br/>YENİDEN.</span><span>FİNANSAL<br/>DEVAMLILIK İÇİN.</span></div></div>
         </div>
       </section>
-      <section id="yaklasim" className="approach">
-        <div className="approach-intro reveal"><h2 className="eyebrow">02 / YAKLAŞIMIMIZ</h2></div>
-        <div className="approach-content reveal"><h3>Önce anlayalım.<br/><span>Sonra planlayalım.</span></h3><div className="approach-description"><p>Her işletmenin finansal dengesi farklıdır. SAD’ın yaklaşımı; mevcut durumu görünür kılmak, seçenekleri netleştirmek ve uygulanabilir bir yol haritası oluşturmaktır.</p><p>Finansal yeniden yapılandırmayı tek bir işlem olarak değil; analizden uygulamaya uzanan, bütünlüklü bir süreç olarak ele alıyoruz.</p></div><div className="services sad-services">{services.map(([service, description], index) => <div key={service}><span>0{index + 1}</span><div><h4>{service}</h4><p>{description}</p></div><ArrowIcon /></div>)}</div></div>
+      <section id="yaklasim" className="approach approach-process" aria-labelledby="approach-heading">
+        <div className="process-heading reveal">
+          <h2 className="eyebrow">02 / YAKLAŞIMIMIZ</h2>
+          <div className="process-intro">
+            <h3 id="approach-heading">Önce anlayalım.<br/><span>Sonra planlayalım.</span></h3>
+            <p>Her işletmenin finansal dengesi farklıdır. Mevcut durumu görünür kılıyor, seçenekleri netleştiriyor ve analizden uygulamaya uzanan bir yol haritası oluşturuyoruz.</p>
+          </div>
+        </div>
+        <ol className="process-steps reveal">
+          {services.map(([service, description], index) => <li className="process-step" key={service}>
+            <span className="process-number" aria-hidden="true">0{index + 1}</span>
+            <h4>{service}</h4>
+            <p>{description}</p>
+          </li>)}
+        </ol>
       </section>
       <section id="sorular" className="faq-section reveal"><div className="faq-heading"><h2 className="eyebrow">03 / SIK SORULAN SORULAR</h2><p>Doğru sorular.<br/><span>Net bir başlangıç.</span></p></div><div className="faq-list">{questions.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}<div className="source-note">FYY hakkında: <a href="https://www.cfofinans.com/finansal-yeniden-yapilandirma-fyy/" target="_blank" rel="noreferrer">CFO Finans bilgilendirmesi <ArrowIcon /></a> · <a href="https://www.tbb.org.tr/fyy/buyukolcekli-072021.pdf" target="_blank" rel="noreferrer">TBB çerçeve anlaşması <ArrowIcon /></a><p>Genel bilgilendirmedir. Başvuru koşulları ve uygulanabilecek seçenekler, güncel mevzuat ve ilgili çerçeve anlaşması kapsamında ayrıca değerlendirilir.</p></div></div></section>
       <ContactCallout />
