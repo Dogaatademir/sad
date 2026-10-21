@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { contactDetails, contactMapUrl } from './contactDetails';
+import { contactDetails, contactMapUrl } from '../data/contactDetails';
+import { legalDocuments } from '../data/legalContent';
+import { CookieNotice } from '../components/CookieNotice';
 
 const navigationLinks = [
   { href: '/', label: 'Anasayfa' },
@@ -8,7 +10,6 @@ const navigationLinks = [
   { href: '/iletisim/', label: 'İletişim' },
 ];
 
-
 type LayoutProps = {
   children: ReactNode;
   currentPath: string;
@@ -16,7 +17,7 @@ type LayoutProps = {
 
 export default function Layout({ children, currentPath }: LayoutProps) {
   const [menu, setMenu] = useState(false);
-  const [scrolled, setScrolled] = useState(() => window.scrollY > 0);
+  const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const updateScrollState = () => setScrolled(window.scrollY > 0);
     updateScrollState();
@@ -51,9 +52,12 @@ export default function Layout({ children, currentPath }: LayoutProps) {
     };
   }, [menu]);
   return <>
-    <a className="skip-link" href="#main">İçeriğe geç</a>
-    <header className={scrolled ? 'header is-scrolled' : 'header'}>
-      <a href="/" className="wordmark sad-wordmark" aria-label="SAD ana sayfa">SAD<span>FİNANSAL<br/>YENİDEN YAPILANDIRMA</span></a>
+    <a className="skip-link" href="#main" onClick={() => {
+      setMenu(false);
+      document.getElementById('main')?.focus({ preventScroll: true });
+    }}>İçeriğe geç</a>
+    <header className={['header', currentPath === '/' ? 'header-home' : '', scrolled ? 'is-scrolled' : ''].filter(Boolean).join(' ')}>
+      <a href="/" className="wordmark sad-wordmark" aria-label="SAD ana sayfa"><img src="/sad-logo.svg" alt="" width="74" height="29"/><span>FİNANSAL<br/>YENİDEN YAPILANDIRMA</span></a>
       <nav id="mobile-navigation" aria-label="Ana gezinme" className={menu ? 'navigation open' : 'navigation'}>
         {navigationLinks.map(({ href, label }) => <a
           key={href}
@@ -67,19 +71,24 @@ export default function Layout({ children, currentPath }: LayoutProps) {
     <footer className="site-footer premium-footer">
       <div className="footer-body">
         <div className="footer-identity">
-          <a className="footer-wordmark" href="/" aria-label="SAD ana sayfa">SAD</a>
+          <span className="footer-wordmark"><img src="/sad-logo.svg" alt="SAD" width="74" height="29"/></span>
           <div className="footer-identity-copy">
-            <p>Sıtkı Arslan Danışmanlık</p>
-            <span>Finansal yeniden yapılandırma</span>
+            <span>Finansal<br/>yeniden yapılandırma</span>
           </div>
         </div>
         <nav className="footer-links" aria-label="Alt menü">
-          <h2 className="footer-eyebrow">SAYFALAR</h2>
+          <h2 className="footer-eyebrow">KURUMSAL</h2>
           {navigationLinks.map(({ href, label }) => <a key={href} href={href}>{label}</a>)}
         </nav>
+        <nav className="footer-links footer-legal" aria-label="Yasal bilgiler">
+          <h2 className="footer-eyebrow">YASAL BİLGİLER</h2>
+          {legalDocuments.map(document => <a key={document.path} href={document.path}>{document.label}</a>)}
+        </nav>
         <div className="footer-reach">
-          <h2 className="footer-eyebrow">İLETİŞİM</h2>
-          <a className="footer-telephone" href={contactDetails.phoneHref}>{contactDetails.phone}</a>
+          <div className="footer-phone">
+            <h2 className="footer-eyebrow">İLETİŞİM</h2>
+            <a className="footer-telephone" href={contactDetails.phoneHref}>{contactDetails.phone}</a>
+          </div>
           <div className="footer-office">
             <h2 className="footer-eyebrow">ADRES</h2>
             <address>{contactDetails.street}<br/>{contactDetails.building}<br/>{contactDetails.district}</address>
@@ -88,9 +97,10 @@ export default function Layout({ children, currentPath }: LayoutProps) {
         </div>
       </div>
       <div className="footer-utility">
-        <p>© {new Date().getFullYear()} SAD. Tüm hakları saklıdır.</p>
+        <p>© {new Date().getFullYear()} SAD Tüm hakları saklıdır.</p>
         <p className="footer-credit">Designed and developed by <a href="https://opsiron.com" target="_blank" rel="noreferrer">Opsiron</a></p>
       </div>
     </footer>
+    <CookieNotice />
   </>;
 }

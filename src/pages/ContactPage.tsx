@@ -1,10 +1,11 @@
-import { ArrowIcon } from './ArrowIcon';
-import { ContactForm } from './ContactForm';
-import { contactDetails, contactMapUrl } from './contactDetails';
-
+import { usePageMotion } from '../hooks/usePageMotion';
+import { ArrowIcon } from '../components/ArrowIcon';
+import { ContactForm } from '../components/ContactForm';
+import { contactDetails, contactMapUrl } from '../data/contactDetails';
 
 export function ContactPage() {
-  return <main id="main" className="contact-page contact-page-direct">
+  usePageMotion('.contact-phone-panel, .contact-address-panel, .contact-message-form, .contact-page-cta');
+  return <main id="main" tabIndex={-1} className="contact-page contact-page-direct">
     <section className="contact-page-hero" aria-labelledby="contact-heading">
       <div className="hero-top"><span className="eyebrow">SAD / İLETİŞİM</span><span className="hero-index">ANKARA · ÇANKAYA</span></div>
       <h1 id="contact-heading">Bir görüşmeyle<br/><span>başlayalım.</span></h1>
@@ -15,7 +16,7 @@ export function ContactPage() {
       <div className="contact-phone-panel">
         <span className="eyebrow">01 / TELEFON</span>
         <div className="contact-phone-content"><h2>Bizi arayın.</h2><a className="contact-phone-number" href={contactDetails.phoneHref} aria-label={`SAD’ı arayın: ${contactDetails.phone}`}>{contactDetails.phone}<ArrowIcon /></a></div>
-        <p>İlk görüşmede ihtiyaçlarınızı dinleyelim,<br/>bir sonraki adımı birlikte netleştirelim.</p>
+        <p>İlk görüşmede ihtiyaçlarınızı dinleyelim,<br className="contact-desktop-break"/>{' '}bir sonraki adımı birlikte netleştirelim.</p>
       </div>
       <div className="contact-address-panel">
         <span className="eyebrow">02 / ADRES</span>

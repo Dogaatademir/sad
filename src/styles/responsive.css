@@ -1,0 +1,107 @@
+/* Shared responsive layouts, mobile hero and vector icons. */
+
+@media (max-width:600px) {
+  .header, .about-introduction, .founder-section, .about-experience, .about-principles, .fyy-grid {
+    min-width: 0;
+  }
+  .menu-toggle {
+    min-width: 56px;
+    min-height: 44px;
+    font-size: 14px;
+    text-align: right;
+  }
+  .navigation {
+    left: -6.82%;
+    right: -6.82%;
+    top: 83px;
+    padding: 16px 6%;
+    gap: 4px;
+    max-height: calc(100svh - 84px);
+    overflow-y: auto;
+  }
+  .navigation a {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 0;
+  }
+  .hero-top {
+    gap: 16px;
+    align-items: start;
+  }
+  .section-heading h2 {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .fyy-explanation h3 {
+    font-size: clamp(30px,9.5vw,42px);
+  }
+  .faq-list summary {
+    min-height: 48px;
+    align-items: center;
+  }
+  .faq-list summary>span {
+    flex-shrink: 0;
+  }
+  .source-note {
+    overflow-wrap: anywhere;
+  }
+  .contact-page-hero>p {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+  .solid-button {
+    min-height: 48px;
+    font-size: 14px;
+    padding: 17px 16px;
+  }
+  .career-list h3 {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .text-link {
+    min-height: 44px;
+    max-width: 100%;
+    width: fit-content;
+    gap: 20px;
+  }
+}
+
+@media (max-width:360px) {
+  .contact-page-hero h1 {
+    font-size: 10vw;
+  }
+}
+
+.arrow-icon {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  vertical-align: -.12em;
+  line-height: 1;
+}
+
+.arrow-icon>svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+@media (max-width:600px) {
+  .menu-toggle {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .menu-toggle-icon {
+    display: block;
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,372 @@
+/* FYY content sections, references and contact callouts. */
+
+.fyy-page {
+  padding: 0 4.4%;
+}
+
+.fyy-page-hero {
+  padding: 49px 0 45px;
+}
+
+.fyy-page-hero h1 {
+  font-size: clamp(52px,7.6vw,120px);
+  font-weight: 450;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+  margin: 64px 0 54px;
+}
+
+.fyy-page-definition {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  gap: 7%;
+  align-items: start;
+}
+
+.fyy-page-definition>.eyebrow {
+  padding-top: 5px;
+}
+
+.fyy-page-definition p {
+  max-width: 710px;
+  margin: 0 0 19px;
+}
+
+.fyy-page-definition p:first-child {
+  color: #34372d;
+}
+
+.fyy-page-anchors {
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  padding-top: 18px;
+}
+
+.fyy-page-anchors a {
+  display: flex;
+  gap: 23px;
+  align-items: center;
+  min-height: 44px;
+}
+
+.fyy-page-anchors a:hover {
+  color: #85887b;
+}
+
+.fyy-page-section {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  gap: 7%;
+  border-top: 1px solid var(--line);
+  padding: 65px 0 70px;
+  min-width: 0;
+}
+
+.fyy-options article, .fyy-process li {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 21px;
+  border-top: 1px solid var(--line);
+  padding: 25px 0;
+}
+
+.fyy-options article:first-child, .fyy-process li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.fyy-item-number {
+  letter-spacing: 1px;
+  padding-top: 3px;
+}
+
+.fyy-options h3, .fyy-process h3 {
+  font-size: 19px;
+  font-weight: 450;
+  letter-spacing: -.3px;
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+
+.fyy-options article p, .fyy-process li p {
+  max-width: 560px;
+  margin: 0;
+}
+
+.fyy-small-note {
+  margin: 22px 0 0;
+  max-width: 600px;
+}
+
+.fyy-options>.fyy-small-note {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+  margin-top: 0;
+}
+
+.fyy-editorial-copy>p {
+  margin: 0 0 21px;
+  max-width: 660px;
+}
+
+.fyy-editorial-copy>p:last-child {
+  margin-bottom: 0;
+}
+
+.fyy-section-caption {
+  margin: 24px 0 0;
+  max-width: 250px;
+}
+
+.fyy-process {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.fyy-process li:last-child {
+  padding-bottom: 0;
+}
+
+.fyy-document-list {
+  list-style: none;
+  margin: 26px 0;
+  padding: 0;
+}
+
+.fyy-document-list li {
+  border-top: 1px solid var(--line);
+  padding: 17px 0;
+  display: flex;
+  gap: 18px;
+}
+
+.fyy-document-list li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.fyy-document-list li::before {
+  content: '—';
+  color: #8b8f7f;
+}
+
+.fyy-page-next {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 48px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 35px;
+}
+
+.fyy-page-next h2 {
+  font-size: clamp(34px,4.5vw,65px);
+  line-height: 1.12;
+  font-weight: 450;
+  letter-spacing: -.04em;
+  margin: 28px 0 0;
+}
+
+.fyy-page-next h2 span {
+  color: #868a7c;
+}
+
+.fyy-page-next .text-link {
+  margin-bottom: 5px;
+  flex-shrink: 0;
+}
+
+.fyy-page-sources {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  gap: 7%;
+  padding: 35px 0 50px;
+}
+
+.fyy-page-sources>.eyebrow {
+  color: #86897b;
+  padding-top: 5px;
+}
+
+.fyy-page-sources a {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 8px;
+  color: #777b6b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fyy-page-sources p {
+  color: #898c7e;
+  max-width: 650px;
+  margin: 17px 0 0;
+}
+
+@media (max-width:900px) {
+  .fyy-page-definition, .fyy-page-section, .fyy-page-sources {
+    gap: 5%;
+  }
+  .fyy-options h3, .fyy-process h3 {
+    font-size: 17px;
+  }
+  .fyy-options article, .fyy-process li {
+    gap: 13px;
+  }
+  .fyy-page-next h2 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width:600px) {
+  .fyy-page {
+    padding: 0 6%;
+  }
+  .fyy-page-hero {
+    padding: 30px 0 25px;
+  }
+  .fyy-page-hero .hero-index {
+    max-width: 110px;
+  }
+  .fyy-page-hero h1 {
+    font-size: clamp(30px,9.5vw,56px);
+    line-height: 1.12;
+    margin: 46px 0 32px;
+  }
+  .fyy-page-definition, .fyy-page-section, .fyy-page-sources {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .fyy-page-definition p:last-child {
+    margin-bottom: 0;
+  }
+  .fyy-page-anchors {
+    margin-top: 30px;
+    padding-top: 12px;
+  }
+  .fyy-page-section {
+    padding: 35px 0 45px;
+    gap: 30px;
+  }
+  .fyy-options h3, .fyy-process h3 {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .fyy-options article, .fyy-process li {
+    grid-template-columns: 22px 1fr;
+    gap: 14px;
+    padding: 23px 0;
+  }
+  .fyy-item-number {
+    padding-top: 6px;
+  }
+  .fyy-section-caption {
+    margin-top: 20px;
+  }
+  .fyy-document-list li {
+    padding: 17px 0;
+    gap: 13px;
+  }
+  .fyy-page-next {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 30px;
+    padding: 35px 0;
+  }
+  .fyy-page-next h2 {
+    font-size: 38px;
+    margin-top: 24px;
+  }
+  .fyy-page-next .text-link {
+    margin: 0;
+    width: fit-content;
+  }
+  .fyy-page-sources {
+    gap: 19px;
+    padding: 28px 0 35px;
+  }
+  .fyy-page-sources a {
+    min-height: 44px;
+    margin-bottom: 0;
+    padding: 9px 0;
+  }
+  .fyy-page-sources p {
+    margin-top: 15px;
+  }
+}
+
+.fyy-closing {
+  background: #1c1d1b;
+  color: #eeeee8;
+  margin-inline: -4.4vw;
+  padding: 0 4.4vw;
+}
+
+.fyy-closing .fyy-page-next {
+  border-top: 0;
+  border-bottom-color: #44453f;
+}
+
+.fyy-closing .eyebrow {
+  color: #a6a79d;
+}
+
+.fyy-closing .fyy-page-next h2>span {
+  color: #a1a299;
+}
+
+.fyy-closing .text-link {
+  color: #efefe8;
+  border-bottom-color: #74766a;
+}
+
+.fyy-closing .fyy-page-sources a {
+  text-decoration-color: #74766a;
+}
+
+@media (max-width:600px) {
+  .fyy-closing {
+    margin-inline: -6vw;
+    padding: 0 6vw;
+  }
+}
+
+.contact-callout {
+  background: #1c1d1b;
+  color: #eeeee8;
+  border: 0;
+  padding: 48px 4.4%;
+}
+
+.contact-callout h2>span {
+  color: #a1a299;
+}
+
+.contact-callout .text-link {
+  color: #efefe8;
+  border-bottom-color: #74766a;
+}
+
+.fyy-closing .contact-callout {
+  padding-inline: 0;
+  border-bottom: 1px solid #44453f;
+}
+
+@media (max-width:600px) {
+  .contact-callout {
+    padding: 35px 6%;
+  }
+}
+
+.about-contact-callout {
+  margin-inline: -4.4vw;
+}
+
+@media (max-width:600px) {
+  .about-contact-callout {
+    margin-inline: -6vw;
+  }
+}

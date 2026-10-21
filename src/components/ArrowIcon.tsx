@@ -1,10 +1,9 @@
-type Direction = 'up-right' | 'down' | 'left' | 'turn-right';
+type Direction = 'up-right' | 'down' | 'left';
 
 const paths: Record<Direction, string> = {
   'up-right': 'M5 19 19 5M5 5h14v14',
   down: 'M12 4v16m-7-7 7 7 7-7',
   left: 'M20 12H4m7-7-7 7 7 7',
-  'turn-right': 'M5 4v11h14m-5-5 5 5-5 5',
 };
 
 export function ArrowIcon({ direction = 'up-right' }: { direction?: Direction }) {

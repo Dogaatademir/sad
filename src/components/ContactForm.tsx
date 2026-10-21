@@ -12,6 +12,7 @@ export function ContactForm() {
       <label htmlFor="contact-phone">Telefon <span className="field-optional">(isteğe bağlı)</span><input id="contact-phone" name="phone" type="tel" autoComplete="tel" placeholder="05xx xxx xx xx" maxLength={30}/></label>
     </div>
     <label htmlFor="contact-message">Mesajınız<textarea id="contact-message" name="message" placeholder="İhtiyacınızı ve görüşmek istediğiniz başlıkları paylaşın." rows={5} required maxLength={5000}/></label>
+    <p className="contact-privacy-note">Kişisel verileriniz hakkında <a href="/kvkk-aydinlatma-metni/">KVKK Aydınlatma Metni</a> ve <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> üzerinden bilgi alabilirsiniz. İlk iletişimde kimlik belgesi, şifre veya hassas mali belge paylaşmayın.</p>
     <button className="solid-button contact-message-submit" type="submit" disabled aria-describedby="message-form-note">Mesaj gönder <ArrowIcon /></button>
     <p id="message-form-note" className="contact-message-form-note">Form gönderimi henüz aktif değil.</p>
   </form>;

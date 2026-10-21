@@ -1,0 +1,68 @@
+/* Unknown-address recovery page. */
+
+.not-found-page {
+  padding: 75px 4.4% 90px;
+  min-height: 65svh;
+}
+
+.not-found-hero {
+  max-width: 940px;
+}
+
+.not-found-hero>.eyebrow {
+  color: var(--caption-copy);
+}
+
+.not-found-hero h1 {
+  font-size: clamp(54px,7.8vw,112px);
+  line-height: 1.08;
+  letter-spacing: -.065em;
+  margin: 38px 0 30px;
+  font-weight: 450;
+}
+
+.not-found-hero>p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--body-copy);
+  max-width: 510px;
+  margin: 0;
+}
+
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  margin-top: 25px;
+}
+
+.not-found-actions .text-link {
+  min-height: 44px;
+  margin-top: 0;
+  transition: color .2s;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .not-found-actions .text-link:hover {
+    opacity: 1;
+    color: var(--body-copy);
+  }
+}
+
+@media (max-width:600px) {
+  .not-found-page {
+    padding: 45px 6% 55px;
+    min-height: 0;
+  }
+  .not-found-hero h1 {
+    font-size: clamp(42px,12vw,68px);
+    margin: 30px 0 25px;
+  }
+  .not-found-hero>p {
+    font-size: 15px;
+  }
+  .not-found-actions {
+    gap: 12px 25px;
+    margin-top: 27px;
+  }
+}

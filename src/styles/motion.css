@@ -1,0 +1,415 @@
+/* Page transitions, hover feedback and reduced motion. */
+
+.home-page {
+  --motion-ease: cubic-bezier(.22,1,.36,1);
+}
+
+.home-page .image-hero h1>.hero-line {
+  display: block;
+  color: inherit;
+  animation: home-enter 1s var(--motion-ease) both;
+}
+
+.home-page .image-hero h1>.hero-line:last-child {
+  animation-delay: 120ms;
+}
+
+.home-page .hero-top {
+  animation: home-enter .8s var(--motion-ease) both;
+}
+
+.home-page .hero-bottom {
+  animation: home-enter 1s 220ms var(--motion-ease) both;
+}
+
+.home-page .text-link {
+  position: relative;
+  transition: color .3s,opacity .3s;
+}
+
+.home-page .text-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .5s var(--motion-ease);
+}
+
+.home-page .text-link .arrow-icon {
+  transition: transform .5s var(--motion-ease);
+}
+
+.home-page .text-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.home-page .text-link:focus-visible .arrow-icon {
+  transform: translate(4px,-4px);
+}
+
+.home-page .balance-art {
+  isolation: isolate;
+}
+
+.home-page .balance-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at 65% 20%,#ffffff12,transparent 65%);
+  opacity: 0;
+  transition: opacity .8s;
+}
+
+.home-page .balance-circle, .home-page .balance-beam {
+  transition: transform 1.2s var(--motion-ease);
+}
+
+.home-page .process-step {
+  position: relative;
+}
+
+.home-page .process-step::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #1b1b1a;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .65s var(--motion-ease);
+}
+
+.home-page .process-step h4, .home-page .process-number {
+  transition: transform .5s var(--motion-ease),color .4s;
+}
+
+.home-page .faq-list summary {
+  position: relative;
+  transition: color .3s,background-color .3s,padding .45s var(--motion-ease);
+}
+
+.home-page .faq-list summary:focus-visible {
+  outline: 2px solid #74746e;
+  outline-offset: 4px;
+}
+
+.home-page .faq-list details[open] summary {
+  color: #1b1b1a;
+}
+
+.home-page .faq-list details[open]>p {
+  animation: home-answer .45s var(--motion-ease) both;
+}
+
+.home-page .contact-callout {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.home-page .contact-callout::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 50%;
+  aspect-ratio: 1;
+  right: -15%;
+  top: -100%;
+  background: radial-gradient(circle,#ffffff0a,transparent 70%);
+  opacity: 0;
+  transform: translateX(12%);
+  transition: opacity .8s,transform 1.2s var(--motion-ease);
+  pointer-events: none;
+}
+
+.home-page .contact-callout:focus-within::before {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .home-page .text-link:hover {
+    opacity: 1;
+  }
+  .home-page .text-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .home-page .text-link:hover .arrow-icon {
+    transform: translate(4px,-4px);
+  }
+  .home-page .balance-art:hover::after {
+    opacity: 1;
+  }
+  .home-page .balance-art:hover .balance-circle {
+    transform: translate(8px,-9px);
+  }
+  .home-page .balance-art:hover .balance-beam {
+    transform: rotate(-7deg);
+  }
+  .home-page .process-step:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .home-page .process-step:hover h4 {
+    transform: translateY(-4px);
+  }
+  .home-page .process-step:hover .process-number {
+    color: #1b1b1a;
+    transform: translateX(4px);
+  }
+  .home-page .faq-list summary:hover {
+    background: #1b1b1a04;
+    padding-left: 12px;
+    padding-right: 12px;
+    color: #1b1b1a;
+  }
+  .home-page .contact-callout:hover::before {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes home-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes home-answer {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .home-page .hero-line, .home-page .hero-top, .home-page .hero-bottom, .home-page .faq-list details[open]>p {
+    animation: none !important;
+  }
+  .home-page .text-link .arrow-icon, .home-page .balance-art .balance-circle, .home-page .process-step h4, .home-page .process-number {
+    transform: none !important;
+  }
+  .home-page .balance-art .balance-beam {
+    transform: rotate(-12deg) !important;
+  }
+}
+
+:is(.about-page,.fyy-page,.contact-page) {
+  --motion-ease: cubic-bezier(.22,1,.36,1);
+}
+
+:is(.about-hero,.fyy-page-hero,.contact-page-hero) .hero-top {
+  animation: home-enter .8s var(--motion-ease) both;
+}
+
+:is(.about-hero,.fyy-page-hero,.contact-page-hero) h1 {
+  animation: home-enter 1s 100ms var(--motion-ease) both;
+}
+
+:is(.about-introduction,.fyy-page-definition,.contact-page-hero>p) {
+  animation: home-enter 1s 200ms var(--motion-ease) both;
+}
+
+.page-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .8s var(--motion-ease),transform .8s var(--motion-ease);
+}
+
+.page-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+:is(.about-page,.fyy-page,.contact-page) .text-link {
+  position: relative;
+  transition: opacity .3s,color .3s;
+}
+
+:is(.about-page,.fyy-page,.contact-page) .text-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .5s var(--motion-ease);
+}
+
+:is(.about-page,.fyy-page,.contact-page) .text-link .arrow-icon, .contact-phone-number .arrow-icon, .fyy-page-sources .arrow-icon {
+  transition: transform .5s var(--motion-ease);
+}
+
+:is(.about-page,.fyy-page,.contact-page) .text-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+:is(.about-page,.fyy-page,.contact-page) .text-link:focus-visible .arrow-icon, .contact-phone-number:focus-visible .arrow-icon {
+  transform: translate(4px,-4px);
+}
+
+.founder-portrait img {
+  transition: filter .8s,box-shadow .8s;
+}
+
+:is(.career-list article,.fyy-options article,.fyy-process li) {
+  position: relative;
+}
+
+:is(.career-list article,.fyy-options article,.fyy-process li)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 42px;
+  height: 1px;
+  background: #1b1b1a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .6s var(--motion-ease);
+}
+
+:is(.career-date,.fyy-item-number) {
+  transition: color .4s;
+}
+
+.fyy-page-anchors a {
+  position: relative;
+  transition: color .3s;
+}
+
+.fyy-page-anchors a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s var(--motion-ease);
+}
+
+.fyy-page-anchors .arrow-icon {
+  transition: transform .5s var(--motion-ease);
+}
+
+.fyy-page-anchors a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.fyy-page-anchors a:focus-visible .arrow-icon {
+  transform: translateY(4px);
+}
+
+.fyy-page .faq-list summary {
+  transition: color .3s,background-color .3s,padding .45s var(--motion-ease);
+}
+
+.fyy-page .faq-list summary:focus-visible {
+  outline: 2px solid #74746e;
+  outline-offset: 4px;
+}
+
+.fyy-page .faq-list details[open]>p {
+  animation: home-answer .45s var(--motion-ease) both;
+}
+
+.contact-message-form label {
+  transition: color .3s;
+}
+
+.contact-message-form label:focus-within {
+  color: #1b1b1a;
+}
+
+.contact-message-form :is(input,textarea) {
+  transition: border-color .35s,background-color .35s;
+}
+
+.contact-message-form :is(input,textarea):focus {
+  background-color: #1b1b1a03;
+}
+
+.contact-phone-panel {
+  transition: background-color .6s,opacity .8s var(--motion-ease),transform .8s var(--motion-ease);
+}
+
+.contact-phone-number {
+  transition: color .4s;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  :is(.about-page,.fyy-page,.contact-page) .text-link:hover {
+    opacity: 1;
+  }
+  :is(.about-page,.fyy-page,.contact-page) .text-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  :is(.about-page,.fyy-page,.contact-page) .text-link:hover .arrow-icon, .contact-phone-number:hover .arrow-icon, .fyy-page-sources a:hover .arrow-icon {
+    transform: translate(4px,-4px);
+  }
+  .founder-portrait:hover img {
+    filter: grayscale(1) contrast(1.06);
+    box-shadow: 0 14px 30px -20px #1b1b1a40;
+  }
+  :is(.career-list article,.fyy-options article,.fyy-process li):hover::after {
+    transform: scaleX(1);
+  }
+  .career-list article:hover .career-date, .fyy-options article:hover .fyy-item-number, .fyy-process li:hover .fyy-item-number {
+    color: #1b1b1a;
+  }
+  .fyy-page-anchors a:hover::after {
+    transform: scaleX(1);
+  }
+  .fyy-page-anchors a:hover .arrow-icon {
+    transform: translateY(4px);
+  }
+  .fyy-page .faq-list summary:hover {
+    padding-left: 12px;
+    padding-right: 12px;
+    background: #1b1b1a04;
+    color: #1b1b1a;
+  }
+  .contact-phone-panel:hover {
+    background-color: #262724;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .page-reveal {
+    opacity: 1;
+    transform: none;
+  }
+  :is(.about-hero,.fyy-page-hero,.contact-page-hero) :is(.hero-top,h1), .about-introduction, .fyy-page-definition, .contact-page-hero>p, .fyy-page .faq-list details[open]>p {
+    animation: none !important;
+  }
+  :is(.about-page,.fyy-page,.contact-page) .arrow-icon {
+    transform: none !important;
+  }
+}

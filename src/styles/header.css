@@ -1,0 +1,51 @@
+/* Sticky full-width navigation and scroll appearance. */
+
+html {
+  scroll-padding-top: 132px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+}
+
+@media (max-width:600px) {
+  html {
+    scroll-padding-top: 108px;
+  }
+}
+
+.header {
+  transition: background-color .22s ease,box-shadow .22s ease;
+}
+
+.header.is-scrolled {
+  background: #f2f2ef;
+  box-shadow: 0 4px 14px rgb(27 29 21 / 4%);
+}
+
+@media (max-width:600px) {
+  .header.is-scrolled .navigation {
+    background: #f2f2ef;
+  }
+}
+
+.header {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 4.4%;
+}
+
+@media (max-width:600px) {
+  .header {
+    margin: 0;
+    padding: 0 6%;
+  }
+  .header .navigation {
+    left: 0;
+    right: 0;
+  }
+}
