@@ -1,0 +1,42 @@
+/* Display the supplied PNG without its transparent canvas margins. */
+.header .sad-wordmark>.sad-logo-frame,
+.site-footer .sad-logo-frame {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  aspect-ratio: 1535 / 1110;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.header .sad-wordmark>.sad-logo-frame {
+  width: 116px;
+  aspect-ratio: 1565 / 757;
+}
+.site-footer .sad-logo-frame {
+  width: 180px;
+}
+.sad-logo-frame>img {
+  display: block;
+  position: absolute;
+  width: 130.29316%;
+  max-width: none;
+  height: auto;
+  left: -14.98371%;
+  top: -34.41441%;
+}
+@media (max-width:600px) {
+  .header .sad-wordmark>.sad-logo-frame {
+    width: 86px;
+  }
+  .site-footer .sad-logo-frame {
+    width: 160px;
+  }
+}
+
+.header .sad-logo-frame>img {
+  width: 127.79553%;
+  left: -13.48243%;
+  top: -87.18626%;
+}

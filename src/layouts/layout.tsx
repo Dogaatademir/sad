@@ -57,7 +57,7 @@ export default function Layout({ children, currentPath }: LayoutProps) {
       document.getElementById('main')?.focus({ preventScroll: true });
     }}>İçeriğe geç</a>
     <header className={['header', currentPath === '/' ? 'header-home' : '', scrolled ? 'is-scrolled' : ''].filter(Boolean).join(' ')}>
-      <a href="/" className="wordmark sad-wordmark" aria-label="SAD ana sayfa"><img src="/sad-logo.svg" alt="" width="74" height="29"/><span>FİNANSAL<br/>YENİDEN YAPILANDIRMA</span></a>
+      <a href="/" className="wordmark sad-wordmark" aria-label="SAD ana sayfa"><span className="sad-logo-frame"><img src="/sad-2.png" alt="" width="2000" height="2000"/></span></a>
       <nav id="mobile-navigation" aria-label="Ana gezinme" className={menu ? 'navigation open' : 'navigation'}>
         {navigationLinks.map(({ href, label }) => <a
           key={href}
@@ -71,14 +71,11 @@ export default function Layout({ children, currentPath }: LayoutProps) {
     <footer className="site-footer premium-footer">
       <div className="footer-body">
         <div className="footer-identity">
-          <span className="footer-wordmark"><img src="/sad-logo.svg" alt="SAD" width="74" height="29"/></span>
-          <div className="footer-identity-copy">
-            <span>Finansal<br/>yeniden yapılandırma</span>
-          </div>
+          <span className="footer-wordmark"><span className="sad-logo-frame"><img src="/sad.png" alt="SAD" width="2000" height="2000" loading="lazy"/></span></span>
         </div>
         <nav className="footer-links" aria-label="Alt menü">
           <h2 className="footer-eyebrow">KURUMSAL</h2>
-          {navigationLinks.map(({ href, label }) => <a key={href} href={href}>{label}</a>)}
+          {navigationLinks.map(({ href, label }) => <a key={href} href={href} aria-current={currentPath === (href.replace(/\/+$/, '') || '/') ? 'page' : undefined}>{label}</a>)}
         </nav>
         <nav className="footer-links footer-legal" aria-label="Yasal bilgiler">
           <h2 className="footer-eyebrow">YASAL BİLGİLER</h2>

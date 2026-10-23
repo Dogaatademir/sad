@@ -1,0 +1,85 @@
+/* Match the homepage's restrained blue treatment on the corporate pages. */
+:is(.about-page,.fyy-page,.contact-page) {
+  --page-accent: var(--brand-accent);
+}
+.about-page .about-hero h1>span,
+.fyy-page .fyy-page-hero h1>span,
+.contact-page .contact-page-hero h1>span,
+:is(.about-page,.fyy-page) .about-section-intro h2>span,
+:is(.about-page,.fyy-page) .contact-callout h2>span,
+.contact-page .contact-address-panel h2>span,
+.contact-page .contact-page-cta h2 {
+  color: var(--page-accent);
+}
+:is(.about-page,.fyy-page,.contact-page) .text-link {
+  border-bottom-color: var(--page-accent);
+}
+:is(.about-page,.fyy-page) .contact-callout .arrow-icon,
+.contact-page .contact-phone-number .arrow-icon {
+  color: var(--page-accent);
+}
+.about-page .career-list article,
+.fyy-page .fyy-options article,
+.fyy-page .fyy-process li {
+  border-top-color: var(--page-accent);
+}
+:is(.about-page,.fyy-page) :is(.career-list article,.fyy-options article,.fyy-process li)::after,
+.fyy-page .fyy-page-anchors a::after {
+  background-color: var(--page-accent);
+}
+.fyy-page :is(.fyy-options article,.fyy-process li) {
+  grid-template-columns: 52px minmax(0,1fr);
+}
+.fyy-page .fyy-item-number,
+.fyy-page :is(.fyy-options article,.fyy-process li):hover .fyy-item-number {
+  background: transparent;
+  color: var(--page-accent);
+  opacity: .72;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.045em;
+  padding-top: 0;
+}
+@media (max-width:600px) {
+  .fyy-page .fyy-item-number {
+    font-size: 38px;
+  }
+}
+
+/* Shared navigation accents keep text dark and backgrounds neutral. */
+.header .sad-wordmark span,
+.header.header-home:not(.is-scrolled) .sad-wordmark span,
+.site-footer .footer-identity-copy {
+  border-left-color: var(--brand-accent);
+}
+.header .navigation a[aria-current=page],
+.site-footer .footer-links a[aria-current=page] {
+  text-decoration: underline;
+  text-decoration-color: var(--brand-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
+}
+.site-footer .footer-eyebrow::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin-bottom: 10px;
+  background: var(--brand-accent);
+}
+.site-footer .footer-detail-link,
+.site-footer .footer-credit>a {
+  text-decoration-color: var(--brand-accent);
+}
+@media (hover:hover) and (pointer:fine) {
+  .header .navigation a:hover,
+  .site-footer a:hover {
+    text-decoration-color: var(--brand-accent);
+  }
+}
+@media (max-width:600px) {
+  .site-footer .footer-eyebrow::before {
+    margin-inline: auto;
+  }
+}

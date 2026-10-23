@@ -164,7 +164,7 @@
     transform: translateY(-4px);
   }
   .home-page .process-step:hover .process-number {
-    color: #1b1b1a;
+    color: var(--home-accent);
     transform: translateX(4px);
   }
   .home-page .faq-list summary:hover {
