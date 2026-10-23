@@ -4,6 +4,19 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="theme-color" content="#fcfcfb"/>
+    <script>
+      // Run before the prerendered page paints or the browser restores scroll.
+      if (performance.getEntriesByType('navigation')[0]?.type === 'reload') {
+        const previousRestoration = history.scrollRestoration;
+        history.scrollRestoration = 'manual';
+        const resetScroll = () => window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        resetScroll();
+        window.addEventListener('pageshow', resetScroll, { once: true });
+        window.addEventListener('pagehide', () => {
+          history.scrollRestoration = previousRestoration;
+        }, { once: true });
+      }
+    </script>
     <link rel="preload" href="/fonts/dm-sans-variable.ttf" as="font" type="font/ttf" crossorigin/>
     <link rel="icon" href="/favicon.ico?v=sad-blue" sizes="16x16 32x32 48x48"/>
     <link rel="icon" type="image/png" href="/favicon-32x32.png?v=sad-blue" sizes="32x32"/>
