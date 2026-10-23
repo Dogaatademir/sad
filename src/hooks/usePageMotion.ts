@@ -18,6 +18,9 @@ export function usePageMotion(selector: string, revealClass = 'page-reveal', vis
     }, { threshold: 0.08 });
 
     elements.forEach(element => {
+      // Prerendered content may already have been painted before hydration.
+      // Never hide anything at or above the viewport when JS becomes ready.
+      if (element.getBoundingClientRect().top <= window.innerHeight) return;
       element.classList.add(revealClass);
       observer.observe(element);
     });

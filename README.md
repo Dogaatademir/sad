@@ -66,7 +66,7 @@ Teknik uygunluk; Google’da sıralama, indekslenme veya yapay zekâ yanıtları
 
 ## Görseller ve yazı tipi
 
-`public/sad-logo.svg`, navbarın SAD yazı logosunun çizgilere dönüştürülmüş DM Sans sürümüdür; görüntülenmek için font yüklenmesine ihtiyaç duymaz. `favicon.ico` (16/32/48 px), `favicon-32x32.png`, `favicon-192x192.png` ve `apple-touch-icon.png` (180 px), kullanıcının sağladığı `public/SAD LOGO AÇIK.png` görselinden oluşturulmuştur. Kaynak PNG değiştirilmeden korunur; navbar logosu ayrı `sad-logo.svg` dosyasını kullanır. İkon bağlantıları ortak `index.html` şablonundadır.
+Navbar `public/sad-2.png`, footer ise `public/sad.png` görselini kullanır. Şeffaf kenar boşlukları `src/styles/brand-logo.css` ile görünümde kırpılır; kaynak görseller değiştirilmez. `favicon.ico` (16/32/48 px), `favicon-32x32.png`, `favicon-192x192.png` ve `apple-touch-icon.png` (180 px), `sad-2.png` logosunu `#1c1d1b` koyu zeminde gösterir. İkon bağlantıları ortak `index.html` şablonundadır; sürüm parametresi önceki favicon önbelleğini yeniler.
 
 `public/sitki-arslan-restored.jpg`, kullanıcının sağladığı CV’deki fotoğraftan AI ile netleştirilmiştir. Orijinal fotoğraf kullanıcının kaynak CV’sindedir. Site fotoğrafa CSS ile siyah-beyaz görünüm uygular. Denge kompozisyonu CSS ile çizilir. Ana sayfanın tam ekran hero’su `public/hero-architecture.jpg` görselini kullanır. Hero stilleri `src/styles/hero.css` içindedir; ana sayfa navbarı başlangıçta görselin üzerinde şeffaf, kaydırmada açık renklidir.
 
