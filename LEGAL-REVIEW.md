@@ -8,7 +8,7 @@ Bu belge işletme sahibinin ve hukuki danışmanının son metinleri tamamlamas�
 
 - İletişim formu gönderime kapalı; uygulama bir sunucuya form verisi göndermez.
 - Üyelik, ödeme, dosya yükleme, reklam pikseli ve analitik entegrasyonu yok.
-- Reklam/analitik çerezi yok. İlk ziyaret bildiriminin “Kabul et” seçeneği, kullanıcı talebiyle `sad:cookie-notice:v2` kaydını sessionStorage’a yazar (sürüm, hatırlama seçimi). Tercih sekme oturumu boyunca geçerlidir; kalıcı gün bazlı saklama yoktur. Önceki kalıcı tercih kaydı ilk açılışta silinir. Tarayıcının oturum geri yükleme davranışı sessionStorage yaşam süresini etkileyebilir. Kayıt sunucuya gönderilmez. “Reddet” kaydı siler. Footer’da bildirim düğmesi bulunmaz. Bu işlem izleme için açık rıza olarak kaydedilmez.
+- Reklam/analitik çerezi yok. İlk ziyaret bildiriminin “Kabul et” ve “Reddet” seçenekleri, kullanıcı talebiyle `sad:cookie-notice:v2` kaydını sessionStorage’a yazar (sürüm, hatırlama seçimi). Tercih sekme oturumu boyunca geçerlidir; kalıcı gün bazlı saklama yoktur. Önceki kalıcı tercih kaydı ilk açılışta silinir. Tarayıcının oturum geri yükleme davranışı sessionStorage yaşam süresini etkileyebilir. Kayıt sunucuya gönderilmez. Her iki seçenek de aynı sekme oturumu boyunca bildirimin kapatıldığını hatırlar. Footer’da bildirim düğmesi bulunmaz. Bu işlem izleme için açık rıza olarak kaydedilmez.
 - Yazı tipleri ve görseller yerel; gömülü harita/video yok. Harita ve kaynak siteler yalnızca dış bağlantı.
 - KVKK, gizlilik, çerez ve kullanım koşulları sayfaları hazır HTML olarak üretilir. Taslak durumları görünür; noindex ve sitemap dışı.
 - Footer ve form üzerinden bilgilendirmelere ulaşılabilir. Hizmet almak için pazarlama rızası istenmez.

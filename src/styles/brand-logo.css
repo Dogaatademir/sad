@@ -1,42 +1,43 @@
-/* Display the supplied PNG without its transparent canvas margins. */
+/* Crop only the transparent margins of the supplied logo files. */
 .header .sad-wordmark>.sad-logo-frame,
 .site-footer .sad-logo-frame {
   display: block;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
-  aspect-ratio: 1535 / 1110;
   padding: 0;
   margin: 0;
   border: 0;
 }
 .header .sad-wordmark>.sad-logo-frame {
-  width: 116px;
-  aspect-ratio: 1565 / 757;
+  width: 210px;
+  aspect-ratio: 782 / 215;
 }
 .site-footer .sad-logo-frame {
   width: 180px;
+  aspect-ratio: 761 / 549;
 }
 .sad-logo-frame>img {
   display: block;
   position: absolute;
-  width: 130.29316%;
   max-width: none;
   height: auto;
-  left: -14.98371%;
-  top: -34.41441%;
+}
+.header .sad-logo-frame>img {
+  width: 127.87724%;
+  left: -13.29923%;
+  top: -182.32558%;
+}
+.site-footer .sad-logo-frame>img {
+  width: 131.40604%;
+  left: -15.50591%;
+  top: -35.33698%;
 }
 @media (max-width:600px) {
   .header .sad-wordmark>.sad-logo-frame {
-    width: 86px;
+    width: 168px;
   }
   .site-footer .sad-logo-frame {
     width: 160px;
   }
-}
-
-.header .sad-logo-frame>img {
-  width: 127.79553%;
-  left: -13.48243%;
-  top: -87.18626%;
 }

@@ -57,7 +57,7 @@ export default function Layout({ children, currentPath }: LayoutProps) {
       document.getElementById('main')?.focus({ preventScroll: true });
     }}>İçeriğe geç</a>
     <header className={['header', currentPath === '/' ? 'header-home' : '', scrolled ? 'is-scrolled' : ''].filter(Boolean).join(' ')}>
-      <a href="/" className="wordmark sad-wordmark" aria-label="SAD ana sayfa"><span className="sad-logo-frame"><img src="/sad-2.png" alt="" width="2000" height="2000"/></span></a>
+      <a href="/" className="wordmark sad-wordmark" aria-label="SAD ana sayfa"><span className="sad-logo-frame"><img src="/SAD%20LOGO%20NAVBAR.png" alt="" width="1000" height="1000"/></span></a>
       <nav id="mobile-navigation" aria-label="Ana gezinme" className={menu ? 'navigation open' : 'navigation'}>
         {navigationLinks.map(({ href, label }) => <a
           key={href}
@@ -71,7 +71,7 @@ export default function Layout({ children, currentPath }: LayoutProps) {
     <footer className="site-footer premium-footer">
       <div className="footer-body">
         <div className="footer-identity">
-          <span className="footer-wordmark"><span className="sad-logo-frame"><img src="/sad.png" alt="SAD" width="2000" height="2000" loading="lazy"/></span></span>
+          <span className="footer-wordmark"><span className="sad-logo-frame"><img src="/SAD%20LOGO%20FOOTER.png" alt="SAD" width="1000" height="1000" loading="lazy"/></span></span>
         </div>
         <nav className="footer-links" aria-label="Alt menü">
           <h2 className="footer-eyebrow">KURUMSAL</h2>

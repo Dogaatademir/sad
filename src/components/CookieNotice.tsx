@@ -21,10 +21,9 @@ export function CookieNotice() {
     }
   }, []);
 
-  function close(remember: boolean) {
+  function close() {
     try {
-      if (remember) window.sessionStorage.setItem(COOKIE_NOTICE_KEY, JSON.stringify(createNoticePreference()));
-      else window.sessionStorage.removeItem(COOKIE_NOTICE_KEY);
+      window.sessionStorage.setItem(COOKIE_NOTICE_KEY, JSON.stringify(createNoticePreference()));
     } catch {
       // Closing never depends on access to browser storage.
     }
@@ -38,11 +37,11 @@ export function CookieNotice() {
       <div className="cookie-notice-copy">
         <span className="eyebrow">SAD / GİZLİLİK</span>
         <h2 id="cookie-notice-heading">Çerezler hakkında.</h2>
-        <p id="cookie-notice-copy">Reklam ve analitik çerezleri kullanmıyoruz. Kabul ederseniz bu bildirimi gizleme tercihiniz yalnızca sekme oturumu boyunca hatırlanır. Reddederseniz tarayıcınıza tercih kaydı yazılmaz. <a href="/cerez-politikasi/">Çerez Politikası</a></p>
+        <p id="cookie-notice-copy">Reklam ve analitik çerezleri kullanmıyoruz. Her iki seçenekte de bildirimin kapatıldığı bilgisi yalnızca bu sekmenin oturumu boyunca tarayıcınızda hatırlanır; izleme izni verilmez. <a href="/cerez-politikasi/">Çerez Politikası</a></p>
       </div>
       <div className="cookie-notice-actions">
-        <button type="button" className="cookie-notice-dismiss" onClick={() => close(false)}>Reddet</button>
-        <button type="button" className="cookie-notice-remember" onClick={() => close(true)}>Kabul et</button>
+        <button type="button" className="cookie-notice-dismiss" onClick={close}>Reddet</button>
+        <button type="button" className="cookie-notice-remember" onClick={close}>Kabul et</button>
       </div>
     </section>, document.body) : null;
 }

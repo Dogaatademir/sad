@@ -79,7 +79,7 @@ export const legalDocuments: LegalDocument[] = [
         'İlk iletişimde şifre, kimlik belgesi, banka hesap erişim bilgisi, sağlık bilgisi veya üçüncü kişilere ait kişisel veri göndermeyin. Danışmanlık için gereken mali belgelerin paylaşım yöntemi hizmet sürecinde ayrıca belirlenmelidir.',
       ] },
       { id: 'teknik', title: 'Teknik hizmetler ve güvenlik', paragraphs: [
-        'Uygulama kodunda ziyaretçi profillemesi, reklam pikseli veya analitik izleme bulunmaz. Çerez bildirimini gizleme tercihiniz, yalnızca kabul ederseniz sekme oturumu boyunca tarayıcınızda hatırlanır; sunucuya gönderilmez. Yazı tipleri, logo ve sayfa görselleri sitenin kendi adresinden yüklenir. Barındırma ve ağ hizmetleriyle ilgili teknik kayıtlar, sağlayıcının gerçek işleyişine göre KVKK metninde açıklanmalıdır.',
+        'Uygulama kodunda ziyaretçi profillemesi, reklam pikseli veya analitik izleme bulunmaz. Çerez bildirimini kapattığınız bilgisi, kabul veya ret seçiminizden sonra aynı sekme oturumu boyunca tarayıcınızda hatırlanır; sunucuya gönderilmez. Yazı tipleri, logo ve sayfa görselleri sitenin kendi adresinden yüklenir. Barındırma ve ağ hizmetleriyle ilgili teknik kayıtlar, sağlayıcının gerçek işleyişine göre KVKK metninde açıklanmalıdır.',
         'Hiçbir internet hizmeti için mutlak güvenlik sözü verilemez. Şüpheli bir durum veya yanlış kişiye ulaşmış bir mesaj fark ederseniz iletişim sayfasındaki telefon üzerinden SAD’a ulaşın.',
       ] },
       { id: 'baglantilar', title: 'Dış bağlantılar', paragraphs: [
@@ -99,13 +99,13 @@ export const legalDocuments: LegalDocument[] = [
         'Çerezler, bir web sitesi ziyaret edildiğinde tarayıcıda saklanan küçük kayıtlardır. Benzer amaçlarla tarayıcının yerel depolama alanı veya farklı izleme teknolojileri de kullanılabilir. Kullanım amacı ve gerçek teknik davranış, uygulanacak bilgilendirme ve izin sürecini belirler.',
       ] },
       { id: 'mevcut-durum', title: 'Bu sitedeki mevcut durum', items: [
-        'SAD uygulama kodu reklam veya analitik çerezi oluşturmaz. Bildirim tercihi yalnızca kullanıcı “Kabul et” seçeneğine bastığında sessionStorage alanına kaydedilir. Yeni tercih için localStorage kullanılmaz.',
+        'SAD uygulama kodu reklam veya analitik çerezi oluşturmaz. Bildirimin kapatıldığı bilgisi, kullanıcı “Kabul et” veya “Reddet” seçeneğine bastığında sessionStorage alanına kaydedilir. Yeni tercih için localStorage kullanılmaz.',
         'Analitik, reklam, yeniden pazarlama ve sosyal medya takip kodu bulunmaz.',
         'Yazı tipleri ve görseller yerelden sunulur; gömülü harita ve video kullanılmaz.',
         'Barındırma katmanının çerezleri veya güvenlik kayıtları bu uygulama envanterinden ayrıdır. Nihai domain ve barındırma üzerinden ayrıca doğrulanacaktır.',
       ] },
       { id: 'tercihler', title: 'İzin ve tercihler', paragraphs: [
-        'İlk ziyarette bir çerez bilgilendirmesi gösterilir. “Reddet” bildirimi yalnızca o sayfa için kapatır ve varsa hatırlama kaydını siler. “Kabul et” yalnızca bildirimi gizleme tercihinizin sekme oturumu boyunca saklanmasına izin verir. Bu seçimler reklam veya analitik araçlarına izin anlamına gelmez.',
+        'İlk ziyarette bir çerez bilgilendirmesi gösterilir. “Reddet” ve “Kabul et” seçeneklerinin ikisi de bildirimi kapatır. Bildirimin kapatıldığı bilgisi, aynı sekme oturumu boyunca tekrar gösterilmemesi için sessionStorage’da tutulur. Bu seçimler reklam veya analitik araçlarına izin anlamına gelmez.',
         'Gelecekte açık rıza gerektiren bir teknoloji eklenirse izin verilmeden yüklenmemeli; kabul, ret ve sonradan tercihi değiştirme seçenekleri birlikte sunulmalıdır. Ziyaret etmeye devam etmek tek başına açık rıza olarak değerlendirilmez. Tarayıcı ayarlarınızdan saklanan çerezleri görebilir, silebilir veya sınırlandırabilirsiniz. Harici bir bağlantıyı açtığınızda o sitenin tercihleri geçerlidir.',
       ] },
       { id: 'envanter', title: 'Çerez envanteri ve güncellemeler', paragraphs: [

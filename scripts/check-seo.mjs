@@ -59,7 +59,7 @@ for (const output of await findHtml(dist)) {
     }
   }
   for (const [, attribute, url] of body.matchAll(/(href|src)="(\/[^"?#]*)(?:[?#][^"]*)?"/g)) {
-    const destination = resolve(dist, `.${url}${url.endsWith('/') ? 'index.html' : ''}`);
+    const destination = resolve(dist, `.${decodeURIComponent(url)}${url.endsWith('/') ? 'index.html' : ''}`);
     await assert.doesNotReject(access(destination), `${attribute} hedefi eksik: ${url}`);
   }
   console.log(`SEO doğrulandı: ${location.pathname}`);

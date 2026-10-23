@@ -314,7 +314,7 @@
 .home-page .approach-process .process-intro h3>span,
 .home-page .fyy-explanation h3>span,
 .home-page .faq-heading>p>span {
-  color: var(--home-accent);
+  color: var(--brand-accent-ink);
 }
 .home-page .approach-process .process-number {
   display: block;

@@ -58,7 +58,7 @@ export function getPageHead(pathname: string) {
     { attribute: 'property', name: 'og:image:type', content: 'image/png' },
     { attribute: 'property', name: 'og:image:width', content: '1200' },
     { attribute: 'property', name: 'og:image:height', content: '630' },
-    { attribute: 'property', name: 'og:image:alt', content: 'SAD — Yeni bir denge. Güçlü bir yarın. Finansal yeniden yapılandırma.' },
+    { attribute: 'property', name: 'og:image:alt', content: 'SAD — Finansal yeniden yapılandırma. Borç analizi, yapılandırma planı ve müzakere desteği.' },
     { attribute: 'name', name: 'twitter:card', content: 'summary_large_image' },
     { attribute: 'name', name: 'twitter:title', content: title },
     { attribute: 'name', name: 'twitter:description', content: description },
