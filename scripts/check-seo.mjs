@@ -6,7 +6,7 @@ import { resolve, relative } from 'node:path';
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
 const sitemap = await readFile(resolve(dist, 'sitemap.xml'), 'utf8');
 const locations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => new URL(match[1]));
-assert.equal(locations.length, 4, 'Sitemap dört kurumsal sayfayı içermeli.');
+assert.deepEqual(locations.map(location => location.pathname).sort(), ['/', '/hakkimizda/', '/fyy-nedir/', '/sik-sorulan-sorular/', '/iletisim/'].sort(), 'Sitemap beş kurumsal sayfayı içermeli.');
 const origin = locations[0].origin;
 const titles = new Set();
 async function findHtml(directory) {

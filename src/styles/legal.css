@@ -32,21 +32,6 @@
   font-size: 13px;
   color: var(--caption-copy);
 }
-.legal-draft-note {
-  padding: 20px 24px;
-  border: 1px solid var(--line);
-  background: #f2f2ef;
-}
-.legal-draft-note strong {
-  font-size: 14px;
-  font-weight: 500;
-}
-.legal-draft-note p {
-  margin: 8px 0 0;
-  color: var(--body-copy);
-  font-size: 14px;
-  line-height: 1.85;
-}
 .legal-layout {
   display: grid;
   grid-template-columns: minmax(200px,.7fr) minmax(0,1.7fr);
@@ -117,7 +102,10 @@
   font-style: normal;
 }
 .legal-contact>a {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   align-items: center;
   min-height: 44px;
   margin: 10px 0;
@@ -187,10 +175,7 @@
   .legal-description {
     font-size: 15px;
   }
-  .legal-draft-note {
-    padding: 18px;
-  }
-  .legal-content>section {
+    .legal-content>section {
     scroll-margin-top: 110px;
   }
   .legal-content h2 {

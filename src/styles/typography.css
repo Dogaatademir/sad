@@ -65,21 +65,12 @@
   font-size: 13px;
   line-height: 1.85;
 }
-
-.fyy-closing .fyy-page-sources a {
-  color: #dedfd6;
-}
-
-.fyy-closing .fyy-page-sources p, .fyy-closing .fyy-page-sources>.eyebrow {
-  color: #bcbeb3;
-}
-
-.contact-callout .eyebrow, .contact-phone-panel>.eyebrow {
+.contact-phone-panel>.eyebrow {
   font-size: 12px;
   color: #bcbeb3;
 }
 
-.contact-phone-panel>p, .contact-page-cta p {
+.contact-phone-panel>p {
   font-size: 15px;
   line-height: 1.85;
   color: #bcbeb3;
@@ -205,7 +196,7 @@
     font-size: 13px;
     gap: 8px;
   }
-  .fyy-page-sources>.eyebrow, .contact-callout .eyebrow, .contact-phone-panel>.eyebrow {
+.fyy-page-sources>.eyebrow, .contact-phone-panel>.eyebrow {
     font-size: 12px;
   }
 }

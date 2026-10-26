@@ -1,5 +1,5 @@
 import { contactDetails } from '../data/contactDetails';
-import { homeQuestions, fyyQuestions } from '../data/faqContent';
+import { fyyQuestions } from '../data/faqContent';
 import { sourceLinks } from '../data/sourceLinks';
 
 type Entity = Record<string, unknown>;
@@ -33,7 +33,7 @@ export function getStructuredData(origin: string, page: { path: string; title: s
     provider: { '@id': organizationId },
     description: 'Borç analizi, yapılandırma planlaması, başvuru hazırlığı ve alacaklı kuruluşlarla görüşmelerin takibi.',
   };
-  const questions = page.path === '/' ? homeQuestions : page.path === '/fyy-nedir/' ? fyyQuestions : null;
+  const questions = page.path === '/sik-sorulan-sorular/' ? fyyQuestions : null;
   const pageEntity: Entity = {
     '@type': questions ? ['WebPage', 'FAQPage'] : page.path === '/hakkimizda/' ? 'AboutPage' : page.path === '/iletisim/' ? 'ContactPage' : 'WebPage',
     '@id': `${url}#webpage`, url, name: page.title, description: page.description,

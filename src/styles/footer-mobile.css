@@ -69,16 +69,22 @@
   .footer-phone>.footer-eyebrow {
     margin-bottom: 8px;
   }
+  .footer-telephone, .footer-email {
+    min-height: 32px;
+    font-size: 14px;
+    letter-spacing: -.2px;
+    line-height: 1.5;
+  }
   .footer-telephone {
     display: inline-flex;
-    align-items: flex-start;
+    align-items: center;
     width: fit-content;
-    min-height: 48px;
     margin: -2px auto 0;
-    font-size: 16px;
-    letter-spacing: -.3px;
-    line-height: 1.3;
     font-variant-numeric: tabular-nums;
+  }
+  .footer-email {
+    margin-inline: auto;
+    justify-content: center;
   }
   .footer-reach .footer-office {
     grid-column: 2;

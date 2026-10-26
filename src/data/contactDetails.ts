@@ -1,6 +1,7 @@
 export const contactDetails = {
   phone: '0312 400 05 62',
   phoneHref: 'tel:+903124000562',
+  email: 'bilgi@sitkiarslan.com',
   street: 'Konutkent Mahallesi, 3028. Cadde',
   building: 'Kule Evo No: 109',
   district: 'Çankaya / Ankara',

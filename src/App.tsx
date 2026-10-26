@@ -3,6 +3,7 @@ import { usePageMetadata } from './hooks/usePageMetadata';
 import { HomePage } from './pages/HomePage';
 import { ContactPage } from './pages/ContactPage';
 import { AboutPage } from './pages/AboutPage';
+import { FaqPage } from './pages/FaqPage';
 import { FyyPage } from './pages/FyyPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { LegalPage } from './pages/LegalPage';
@@ -15,6 +16,7 @@ export default function App({ pathname = window.location.pathname }: { pathname?
   const page = currentPath === '/iletisim' ? <ContactPage />
     : currentPath === '/hakkimizda' ? <AboutPage />
     : currentPath === '/fyy-nedir' ? <FyyPage />
+    : currentPath === '/sik-sorulan-sorular' ? <FaqPage />
     : currentPath === '/' ? <HomePage />
     : legalDocument ? <LegalPage document={legalDocument} />
     : <NotFoundPage />;

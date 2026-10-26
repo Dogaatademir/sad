@@ -1,13 +1,56 @@
-export const homeQuestions = [
-  ['FYY nedir?', 'Finansal yeniden yapılandırma; ticari kredi borçlarının, ilgili finansal kuruluşlarla çerçeve anlaşmaları kapsamında yeniden düzenlenmesidir. Amaç, işletmenin geri ödeme kapasitesi ile borç takvimini uyumlu hale getirmektir.'],
-  ['Kimler için değerlendirilebilir?', 'Finansal kuruluşlara kredi borcu bulunan ve geri ödemede geçici güçlük yaşayan veya yaşaması beklenen ticari işletmeler için değerlendirilebilir. Uygunluk; mali durum, alacaklı kuruluşlar ve geçerli çerçeve anlaşması üzerinden incelenir.'],
-  ['Hangi seçenekler gündeme gelebilir?', 'Vade uzatımı, kredilerin yenilenmesi ve koşulları karşılandığında ilave finansman gibi seçenekler değerlendirilebilir. Her seçenek işletmeye, ilgili anlaşmaya ve alacaklıların kararına bağlıdır.'],
-  ['İlk görüşmeye nasıl hazırlanmalıyım?', 'Güncel mali tablolar, kredi ve teminat dökümü ile nakit akışı öngörüsü başlangıç için yararlı olur. İlk değerlendirmede ihtiyaç duyulacak belgeler netleştirilir.'],
-];
+export type FaqQuestion = [question: string, answer: string, link?: { label: string; href: string }];
 
-export const fyyQuestions = [
-  ['FYY, tüm borçları kapsar mı?', 'FYY’nin odağında ilgili finansal kuruluşlara olan kredi borçları bulunur. Her borcun kendiliğinden kapsama girdiği varsayılamaz; kapsam, alacaklılar ve geçerli anlaşma üzerinden belirlenir.'],
-  ['Başvuru, yapılandırmanın kabul edildiği anlamına gelir mi?', 'Hayır. Başvuru değerlendirme sürecinin bir adımıdır. Yapılandırma, işletmenin mali durumuna ve ilgili alacaklı kuruluşların gerekli onaylarına bağlıdır.'],
-  ['Borç indirimi veya yeni kredi kesin midir?', 'Hayır. Borçtan vazgeçme ya da ilave kredi sağlama zorunluluğu yoktur. Seçenekler, ilgili uygulamanın koşulları ve alacaklıların kararları kapsamında değerlendirilir.'],
-  ['Süreç ne kadar sürer?', 'Takvim; uygulanacak çerçeve anlaşmasına, dosyanın niteliğine ve alacaklı kuruluşların değerlendirmelerine göre şekillenir. İşletmenin belgelerinin hazır olması planlamayı kolaylaştırır.'],
+export const fyyQuestions: FaqQuestion[] = [
+  [
+    "FYY’nin amacı nedir?",
+    "FYY’nin amacı, İlgili mevzuat çerçevesinde alınacak tedbirler ile borçluların geri ödeme yükümlülüklerini yerine getirebilmelerine ve istihdama katkıda bulunmaya devam etmelerine imkan verilmesini sağlamaktır."
+  ],
+  [
+    "FYY, tüm borçları kapsar mı?",
+    "Hayır. FYY’nin odağında ilgili finansal kuruluşlara (Bankalar, Finansal Kiralama Şirketleri, Faktoring Şirketleri, Finansman Şirketleri) olan kredi borçları bulunur. "
+  ],
+  [
+    "FYY kapsamındayken çek ödemelerimi yapacak mıyım?",
+    "Evet. Piyasaya keşide edilen çekler, gününde ödenmezse karşılıksız olarak belgelendirilir."
+  ],
+  [
+    "FYY başvurusu yapıldığında üçüncü kişiler bundan haberdar olur mu?",
+    "Hayır. FYY mevzuatı gereği, FYY süreci ile İlgili tüm kuruluşlar, yapılandırmaya konu borçlunun finansal yeniden yapılandırılması süreci boyunca gizlilik ilkesine tam olarak uyarlar. 5411 sayılı Bankacılık Kanunu’nun bankacılık sırrı ve müşteri sırrının korunmasına ilişkin hükümleri ile 6698 Sayılı Kişisel Verilerin Korunması Kanunu hükümleri ve ilgili diğer mevzuat hükümlerine tamamen riayet edilir."
+  ],
+  [
+    "FYY başvuru ve yapılandırma sürecinde Şirket Yönetiminde kayyım söz konusu mudur?",
+    "Hayır. FYY sürecinde şirket yönetimi aynen devam eder."
+  ],
+  [
+    "FYY başvurusu ile FYY imzalanma tarihi arasındaki kredi geri ödemelerim ertelenir mi?",
+    "Evet. FYY başvurusunun kabul edilmesinin ardından, FYY imza tarihine kadar olan kredi ödemeleri ilgili finansal kuruluş tarafından ertelenir."
+  ],
+  [
+    "FYY başvurusundan itibaren anlaşmanın imzalanması ne kadar sürer?",
+    "Büyük Ölçekli Uygulama 90 gün (+90) gün içinde olumlu ya da olumsuz sonuçlanır. Küçük Ölçekli uygulama ise Büyük Ölçekli Uygulamaya göre daha hızlı (90 günü bulmadan) sonuçlanır."
+  ],
+  [
+    "FYY kapsamındaki bir işletme ilave kredi kullanabilir mi?",
+    "Evet. Alacaklı kuruluşların onayına tabi olmak üzere ilave kredi tahsisi mümkündür."
+  ],
+  [
+    "FYY mevzuatı Türkiye’deki tüm Finansal Kuruluşları bağlar mı?",
+    "Hayır. Piyasa payı en büyük Bankalar başta olmak üzere Bankaların önemli bölümü ve belli başlı Finansal Kiralama Şirketleri ve Faktoring Şirketleri Çerçeve Sözleşmeye imza koymuş olmakla beraber, Çerçeve Sözleşmeye imza koymayan Finansal Kuruluşlar açısından FYY süreci bağlayıcı değildir. Çerçeve sözleşmeyi imzalayan kuruluşların listesine TBB sayfasından ulaşılabilir.",
+    {
+      "label": "Çerçeve sözleşmeyi imzalayan kuruluşlar",
+      "href": "https://www.tbb.org.tr/pdf/faaliyetler/9584/6438"
+    }
+  ],
+  [
+    "Ödemelerim henüz gecikmeye düşmedi. Yine de FYY’ye başvurabilir miyim?",
+    "Evet. Ödemelerin henüz gecikmeye düşmemiş olması, tek başına FYY başvurusuna engel değildir."
+  ],
+  [
+    "Vergi ve SGK borçları FYY kapsamında değerlendirilir mi?",
+    "Hayır. FYY, finansal kuruluşlara olan kredi borçlarına yöneliktir; vergi ve SGK borçlarını kapsamaz."
+  ],
+  [
+    "Ankara dışında faaliyet gösteren işletmelere de hizmet veriliyor mu?",
+    "Evet. SAD, Ankara dışında faaliyet gösteren işletmelere de danışmanlık hizmeti sunmaktadır. Yerinde ziyaretler ve online toplantılar aracılığıyla Türkiye’nin tüm illerindeki işletmelerle çalışılabilmektedir."
+  ]
 ];

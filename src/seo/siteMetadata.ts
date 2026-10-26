@@ -10,7 +10,7 @@ export const pages: PageMetadata[] = [
   {
     path: '/',
     label: 'Anasayfa',
-    title: 'SAD | Finansal Yeniden Yapılandırma',
+    title: 'SAD | Finansal Yönetim Danışmalığı',
     description: 'SAD, kredi geri ödemelerinde güçlük yaşayan işletmelere finansal yeniden yapılandırma danışmanlığı sunar. Borç analizi, planlama ve müzakere desteği.',
   },
   {
@@ -24,6 +24,12 @@ export const pages: PageMetadata[] = [
     label: 'FYY Nedir?',
     title: 'FYY Nedir? | SAD',
     description: 'Finansal Yeniden Yapılandırma (FYY) nedir? Kapsamı, uygunluk değerlendirmesi, süreç ve başvuruya hazırlık hakkında SAD ile bilgi edinin.',
+  },
+  {
+    path: '/sik-sorulan-sorular/',
+    label: 'Sık Sorulan Sorular',
+    title: 'Sık Sorulan Sorular | SAD',
+    description: 'Finansal yeniden yapılandırma kapsamı, başvuru değerlendirmesi ve süreç hakkında sık sorulan sorular ve yanıtları.',
   },
   {
     path: '/iletisim/',

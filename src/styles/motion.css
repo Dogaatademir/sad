@@ -110,32 +110,6 @@
   animation: home-answer .45s var(--motion-ease) both;
 }
 
-.home-page .contact-callout {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.home-page .contact-callout::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  width: 50%;
-  aspect-ratio: 1;
-  right: -15%;
-  top: -100%;
-  background: radial-gradient(circle,#ffffff0a,transparent 70%);
-  opacity: 0;
-  transform: translateX(12%);
-  transition: opacity .8s,transform 1.2s var(--motion-ease);
-  pointer-events: none;
-}
-
-.home-page .contact-callout:focus-within::before {
-  opacity: 1;
-  transform: none;
-}
-
 @media (hover:hover) and (pointer:fine) {
   .home-page .text-link:hover {
     opacity: 1;
@@ -149,9 +123,6 @@
   }
   .home-page .balance-art:hover::after {
     opacity: 1;
-  }
-  .home-page .balance-art:hover .balance-circle {
-    transform: translate(8px,-9px);
   }
   .home-page .balance-art:hover .balance-beam {
     transform: rotate(-7deg);
@@ -172,10 +143,6 @@
     padding-left: 12px;
     padding-right: 12px;
     color: #1b1b1a;
-  }
-  .home-page .contact-callout:hover::before {
-    opacity: 1;
-    transform: none;
   }
 }
 

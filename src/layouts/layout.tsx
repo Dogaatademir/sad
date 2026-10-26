@@ -7,6 +7,7 @@ const navigationLinks = [
   { href: '/', label: 'Anasayfa' },
   { href: '/hakkimizda/', label: 'Hakkımızda' },
   { href: '/fyy-nedir/', label: 'FYY Nedir ?' },
+  { href: '/sik-sorulan-sorular/', label: 'Sık Sorulan Sorular' },
   { href: '/iletisim/', label: 'İletişim' },
 ];
 
@@ -85,6 +86,7 @@ export default function Layout({ children, currentPath }: LayoutProps) {
           <div className="footer-phone">
             <h2 className="footer-eyebrow">İLETİŞİM</h2>
             <a className="footer-telephone" href={contactDetails.phoneHref}>{contactDetails.phone}</a>
+            <a className="footer-email" href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>
           </div>
           <div className="footer-office">
             <h2 className="footer-eyebrow">ADRES</h2>

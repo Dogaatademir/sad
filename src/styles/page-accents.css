@@ -5,18 +5,12 @@
 .about-page .about-hero h1>span,
 .fyy-page .fyy-page-hero h1>span,
 .contact-page .contact-page-hero h1>span,
-:is(.about-page,.fyy-page) .about-section-intro h2>span,
-.contact-page .contact-address-panel h2>span {
+:is(.about-page,.fyy-page) .about-section-intro h2>span {
   color: var(--brand-accent-ink);
-}
-:is(.about-page,.fyy-page) .contact-callout h2>span,
-.contact-page .contact-page-cta h2 {
-  color: var(--page-accent);
 }
 :is(.about-page,.fyy-page,.contact-page) .text-link {
   border-bottom-color: var(--page-accent);
 }
-:is(.about-page,.fyy-page) .contact-callout .arrow-icon,
 .contact-page .contact-phone-number .arrow-icon {
   color: var(--page-accent);
 }
@@ -84,4 +78,13 @@
   .site-footer .footer-eyebrow::before {
     margin-inline: auto;
   }
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .site-footer a:hover {
+    color: var(--brand-accent);
+  }
+}
+.site-footer a:focus-visible {
+  outline-color: var(--brand-accent);
 }

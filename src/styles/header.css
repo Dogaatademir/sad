@@ -49,3 +49,19 @@ html {
     right: 0;
   }
 }
+
+@media (min-width:601px) and (max-width:1000px) {
+  .header .navigation {
+    gap: 14px;
+    font-size: 12px;
+  }
+  .header .wordmark.sad-wordmark>.sad-logo-frame {
+    width: 140px;
+  }
+}
+
+@media (min-width:601px) and (max-width:700px) {
+  .header .navigation {
+    gap: 10px;
+  }
+}
