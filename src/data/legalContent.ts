@@ -16,12 +16,12 @@ export type LegalDocument = {
   sources?: { label: string; href: string }[];
 };
 
-// Describes the current site. Update before enabling form or changing providers.
+// Keep these disclosures aligned with the deployed contact providers.
 export const legalDetails = {
   controller: 'Sıtkı Arslan',
   email: 'bilgi@sitkiarslan.com',
-  updatedAt: '2026-10-26',
-  updatedLabel: '26 Ekim 2026',
+  updatedAt: '2026-10-27',
+  updatedLabel: '27 Ekim 2026',
 };
 
 export const legalDocuments: LegalDocument[] = [
@@ -45,7 +45,7 @@ export const legalDocuments: LegalDocument[] = [
         "paragraphs": [
           "Telefon, e-posta veya yazılı başvuru yoluyla bizimle doğrudan paylaştığınız ad ve soyadı, iletişim bilgileri, şirket ve görev bilgileri ile talebinizin içeriği; iletişim kurulması ve talebin değerlendirilmesi sırasında işlenir. Telefon görüşmeleri, Enpama tarafından sağlanan telefon yanıtlama ve sekreterlik hizmeti kapsamında ses kaydına alınır. Kayıt başlamadan önce arayan kişiye anonsla bilgi verilir; görüşmenin ses içeriği de kişisel veri olarak elde edilir.",
           "Web sitesine erişim sırasında IP adresi, istenen sayfa, erişim zamanı, tarayıcı ve cihaz bilgileri gibi teknik veriler, barındırma ve ağ altyapısı tarafından otomatik yöntemlerle işlenebilir. Bu işlemler, iletişim formuna bilgi girilip girilmemesinden bağımsızdır.",
-          "İletişim formu şu anda gönderime kapalıdır. Form alanlarına yazılan bilgiler SAD uygulaması tarafından sunucuya gönderilmez veya tarayıcı depolamasına kaydedilmez. Sitede üyelik, ödeme veya dosya yükleme işlemi bulunmaz."
+          "İletişim formunu gönderdiğinizde ad ve soyadınız, e-posta adresiniz, isteğe bağlı şirket ve telefon bilgileriniz ile mesajınız Netlify üzerindeki sunucu işlevi tarafından doğrulanır ve Resend e-posta hizmeti üzerinden SAD’ın bilgi@sitkiarslan.com posta kutusuna iletilir. Form içeriği tarayıcı depolamasına veya SAD’a ait ayrı bir veritabanına kaydedilmez. Sitede üyelik, ödeme veya dosya yükleme işlemi bulunmaz."
         ]
       },
       {
@@ -62,14 +62,14 @@ export const legalDocuments: LegalDocument[] = [
         "title": "Verilerin paylaşılması ve barındırma",
         "paragraphs": [
           "Web sitesi Netlify, Inc. tarafından sağlanan barındırma ve içerik dağıtım altyapısı üzerinden sunulur. Siteye erişim ve güvenlik işlemleri için gereken teknik veriler bu altyapıda işlenebilir. SAD uygulaması reklam veya analitik sağlayıcılarına ziyaretçi profili göndermez. Telefon iletişiminde Enpama’dan telefon yanıtlama ve sekreterlik hizmeti alınır. Aramanın yanıtlanması, talebin alınması ve SAD’a yönlendirilmesi için gereken ad, telefon ve talep içeriği bu hizmet kapsamında işlenebilir.",
-          "Bir kanuni yükümlülüğün yerine getirilmesi veya hukuki bir hakkın korunması gerektiğinde, ilgili kayıtlar yalnızca gerekli kapsamda yetkili kamu kurumlarına, yargı mercilerine ve hukuki danışmanlara aktarılabilir. E-posta ile kendinizin başlattığı iletişimde, mesajın iletilmesi için kullanılan posta hizmetleri de iletişimin teknik taraflarıdır."
+          "Bir kanuni yükümlülüğün yerine getirilmesi veya hukuki bir hakkın korunması gerektiğinde, ilgili kayıtlar yalnızca gerekli kapsamda yetkili kamu kurumlarına, yargı mercilerine ve hukuki danışmanlara aktarılabilir. Form taleplerinin iletilmesinde Resend (Plus Five Five, Inc.) ve alıcı e-posta hizmeti kullanılır; formdaki bilgiler ve mesaj içeriği bu sağlayıcılar ile talebi karşılayan yetkili kişiye iletilir. E-posta ile kendinizin başlattığı iletişimde de mesajın iletilmesi için kullanılan posta hizmetleri iletişimin teknik taraflarıdır."
         ]
       },
       {
         "id": "yurt-disi",
         "title": "Yurt dışındaki teknik altyapı",
         "paragraphs": [
-          "Netlify yurt dışında yerleşik bir hizmet sağlayıcısıdır ve dağıtık altyapı kullanır. Bu nedenle siteye erişim sırasında oluşan teknik veriler Türkiye dışındaki sistemlerde işlenebilir. Bu barındırma hizmetinin kullanılması, verilerin yalnızca Türkiye’de tutulduğu anlamına gelmez.",
+          "Netlify yurt dışında yerleşik bir hizmet sağlayıcısıdır ve dağıtık altyapı kullanır. Bu nedenle siteye erişim sırasında oluşan teknik veriler Türkiye dışındaki sistemlerde işlenebilir. Bu barındırma hizmetinin kullanılması, verilerin yalnızca Türkiye’de tutulduğu anlamına gelmez. Form gönderiminde kullanılan Resend, depolanan verileri ABD’de tutar. Alıcı posta hizmetinin altyapısına bağlı olarak da yurt dışında veri işlenmesi söz konusu olabilir; bu kapsam formda paylaştığınız kimlik, iletişim ve mesaj bilgilerini de kapsar.",
           "Bu bilgilendirme, web sitesinin kullanılması veya çerez bildirimindeki bir düğmeye basılması, yurt dışına veri aktarımı için açık rıza alındığı anlamına gelmez. Kanun’un 9. maddesindeki aktarım şartları, aydınlatma yükümlülüğünden ayrı olarak uygulanır."
         ]
       },
@@ -78,7 +78,7 @@ export const legalDocuments: LegalDocument[] = [
         "title": "Saklama ve silme",
         "paragraphs": [
           "Bir danışmanlık hizmetine dönüşmeyen yazılı bilgi ve iletişim talepleri, son iletişim tarihinden itibaren en geç bir yıl içinde silinir veya anonim hale getirilir. Bu süre telefon ses kayıtları için belirlenmiş bir saklama süresi değildir. Bir uyuşmazlık ya da kanuni saklama yükümlülüğü varsa yalnızca bunun için gerekli kayıtlar, ilgili yükümlülük veya hakkın korunması için gereken süre boyunca saklanır.",
-          "Hizmet ilişkisi kurulursa hizmet, sözleşme ve muhasebe kayıtları kendi kanuni saklama süreleri ve hizmete ilişkin bilgilendirme kapsamında değerlendirilir. Web erişimine ilişkin teknik kayıtlar Netlify altyapısındaki hizmet ve güvenlik süreçlerine tabidir; bunlar için iletişim taleplerine ait bir yıllık süre uygulanmaz. SAD uygulaması ayrıca bir ziyaretçi kayıt veritabanı oluşturmaz.",
+          "Hizmet ilişkisi kurulursa hizmet, sözleşme ve muhasebe kayıtları kendi kanuni saklama süreleri ve hizmete ilişkin bilgilendirme kapsamında değerlendirilir. Web erişimine ilişkin teknik kayıtlar Netlify altyapısındaki hizmet ve güvenlik süreçlerine tabidir; bunlar için iletişim taleplerine ait bir yıllık süre uygulanmaz. SAD uygulaması ayrıca bir ziyaretçi kayıt veritabanı oluşturmaz ve form içeriğini sunucu işlevi günlüklerine yazmaz. E-postanın iletilmesi ve saklanması sırasında Resend ve alıcı posta hizmetinde kayıt oluşur; bu kayıtların silinmesi ve erişim yetkileri de ilgili sağlayıcılardaki işlemlerle yönetilir.",
           "Çerez bildirimini kapatma kaydı yalnızca tarayıcınızdaki sekme oturumu boyunca tutulur. İşleme şartları ortadan kalkan kişisel veriler, kanuni yükümlülükler gözetilerek silinir, yok edilir veya anonim hale getirilir."
         ]
       },
@@ -122,6 +122,10 @@ export const legalDocuments: LegalDocument[] = [
       {
         "label": "Netlify / Veri işleme sözleşmesi",
         "href": "https://www.netlify.com/pdf/netlify-dpa.pdf"
+      },
+      {
+        "label": "Resend / Güvenlik ve veri işleme",
+        "href": "https://resend.com/security"
       }
     ]
   },
@@ -142,7 +146,7 @@ export const legalDocuments: LegalDocument[] = [
         "id": "iletisim",
         "title": "Bizimle paylaştığınız bilgiler",
         "paragraphs": [
-          "Telefon ve e-posta üzerinden yalnızca talebinizin değerlendirilmesi için gerekli bilgileri paylaşın. Telefon görüşmeleri, Enpama tarafından sağlanan telefon yanıtlama ve sekreterlik hizmeti kapsamında ses kaydına alınır. Kayıt başlamadan önce arayan kişiye anonsla bilgi verilir; görüşmenin ses içeriği de kişisel veri olarak elde edilir. İletişim formu şu anda gönderime kapalıdır; alanlara yazılan bilgiler SAD uygulaması tarafından gönderilmez veya kaydedilmez.",
+          "Telefon ve e-posta üzerinden yalnızca talebinizin değerlendirilmesi için gerekli bilgileri paylaşın. Telefon görüşmeleri, Enpama tarafından sağlanan telefon yanıtlama ve sekreterlik hizmeti kapsamında ses kaydına alınır. Kayıt başlamadan önce arayan kişiye anonsla bilgi verilir; görüşmenin ses içeriği de kişisel veri olarak elde edilir. İletişim formundaki bilgiler, gönderim düğmesine bastığınızda Netlify sunucu işlevi ve Resend aracılığıyla SAD’ın bilgi@sitkiarslan.com posta kutusuna iletilir. Gönderim tamamlanmadan formdaki bilgileri kontrol edebilirsiniz; uygulama form içeriğini tarayıcı depolamasında saklamaz.",
           "İlk iletişimde şifre, banka hesabına erişim bilgisi, kimlik belgesi, özel nitelikli kişisel veri veya üçüncü kişilere ait gereksiz bilgiler göndermeyin. Danışmanlık için gereken mali belgelerin paylaşım yöntemi, hizmetin kapsamı belirlendiğinde ayrıca kararlaştırılır."
         ]
       },
@@ -150,7 +154,7 @@ export const legalDocuments: LegalDocument[] = [
         "id": "teknik",
         "title": "Teknik altyapı ve izleme",
         "paragraphs": [
-          "Web sitesi Netlify barındırma ve içerik dağıtım altyapısını kullanır. Siteye erişim sırasında teknik veriler bu altyapı tarafından işlenebilir. Netlify’nin dağıtık hizmet yapısı nedeniyle bu işlemler yurt dışındaki sistemlerde de gerçekleşebilir. Ayrıntılar KVKK Aydınlatma Metni’nde yer alır.",
+          "Web sitesi Netlify barındırma ve içerik dağıtım altyapısını kullanır. Siteye erişim sırasında teknik veriler bu altyapı tarafından işlenebilir. Form iletimi için ayrıca Resend ve alıcı e-posta hizmeti kullanılır. Resend depolanan verileri ABD’de tutar; Netlify ve alıcı posta hizmetinin altyapısı da yurt dışında veri işlenmesini içerebilir. Ayrıntılar KVKK Aydınlatma Metni’nde yer alır.",
           "SAD uygulamasında reklam pikseli, ziyaretçi profillemesi ve analitik izleme aracı bulunmaz. Yazı tipleri ve görseller sitenin kendi adresinden sunulur. Bildirimin kapatıldığı bilgisi yalnızca tarayıcınızdaki sekme oturumunda hatırlanır; SAD sunucusuna gönderilmez."
         ]
       },

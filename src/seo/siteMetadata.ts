@@ -1,7 +1,7 @@
 import { getStructuredData } from './structuredData';
 import { legalDocuments } from '../data/legalContent';
 
-export const siteOrigin = 'https://noir-studio-doga-191026.handedemir320.chatgpt.site';
+export const siteOrigin = 'https://sitkiarslan.com';
 export const socialImage = `${siteOrigin}/social/sad-share.png`;
 
 type PageMetadata = { path: string; label: string; title: string; description: string; indexable?: boolean };

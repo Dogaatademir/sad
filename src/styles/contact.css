@@ -1,4 +1,4 @@
-/* Contact channels, visual form and focus styles. */
+/* Contact channels, message form and focus styles. */
 
 .contact-page-direct .contact-page-hero {
   padding-bottom: 52px;
@@ -202,7 +202,20 @@
 .contact-message-submit:disabled {
   background: #1c1d1b;
   color: #eeefe8;
-  cursor: default;
+  cursor: wait;
+  opacity: .7;
+}
+
+.contact-form-trap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.contact-message-form-note[data-status="error"] {
+  color: #9b2929;
 }
 
 .contact-message-form-note {

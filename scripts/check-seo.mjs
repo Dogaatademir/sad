@@ -20,6 +20,13 @@ async function findHtml(directory) {
 }
 for (const output of await findHtml(dist)) {
   const path = relative(dist, output).replaceAll('\\', '/');
+  if (/^google[a-f0-9]+\.html$/.test(path)) {
+    const verification = await readFile(output, 'utf8');
+    assert.equal(verification.trim(), `google-site-verification: ${path}`, 'Google doğrulama dosyası içeriği korunmalı.');
+    assert.equal(verification, await readFile(resolve(dist, '../public', path), 'utf8'));
+    console.log(`Google doğrulama dosyası hazır: /${path}`);
+    continue;
+  }
   const route = path === 'index.html' ? '/' : path === '404.html' ? '/404.html' : `/${path.replace(/index\.html$/, '')}`;
   const location = new URL(route, origin);
   const indexed = locations.some(item => item.href === location.href);
