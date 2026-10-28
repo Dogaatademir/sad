@@ -20,8 +20,8 @@ export type LegalDocument = {
 export const legalDetails = {
   controller: 'Sıtkı Arslan',
   email: 'bilgi@sitkiarslan.com',
-  updatedAt: '2026-10-27',
-  updatedLabel: '27 Ekim 2026',
+  updatedAt: '2026-10-28',
+  updatedLabel: '28 Ekim 2026',
 };
 
 export const legalDocuments: LegalDocument[] = [
@@ -79,7 +79,7 @@ export const legalDocuments: LegalDocument[] = [
         "paragraphs": [
           "Bir danışmanlık hizmetine dönüşmeyen yazılı bilgi ve iletişim talepleri, son iletişim tarihinden itibaren en geç bir yıl içinde silinir veya anonim hale getirilir. Bu süre telefon ses kayıtları için belirlenmiş bir saklama süresi değildir. Bir uyuşmazlık ya da kanuni saklama yükümlülüğü varsa yalnızca bunun için gerekli kayıtlar, ilgili yükümlülük veya hakkın korunması için gereken süre boyunca saklanır.",
           "Hizmet ilişkisi kurulursa hizmet, sözleşme ve muhasebe kayıtları kendi kanuni saklama süreleri ve hizmete ilişkin bilgilendirme kapsamında değerlendirilir. Web erişimine ilişkin teknik kayıtlar Netlify altyapısındaki hizmet ve güvenlik süreçlerine tabidir; bunlar için iletişim taleplerine ait bir yıllık süre uygulanmaz. SAD uygulaması ayrıca bir ziyaretçi kayıt veritabanı oluşturmaz ve form içeriğini sunucu işlevi günlüklerine yazmaz. E-postanın iletilmesi ve saklanması sırasında Resend ve alıcı posta hizmetinde kayıt oluşur; bu kayıtların silinmesi ve erişim yetkileri de ilgili sağlayıcılardaki işlemlerle yönetilir.",
-          "Çerez bildirimini kapatma kaydı yalnızca tarayıcınızdaki sekme oturumu boyunca tutulur. İşleme şartları ortadan kalkan kişisel veriler, kanuni yükümlülükler gözetilerek silinir, yok edilir veya anonim hale getirilir."
+          "Çerez bildirimi tercihiniz, tarayıcınızın site verileri silinene kadar localStorage içinde saklanır; uygulama bu kayıt için otomatik süre sonu belirlemez. İşleme şartları ortadan kalkan kişisel veriler, kanuni yükümlülükler gözetilerek silinir, yok edilir veya anonim hale getirilir."
         ]
       },
       {
@@ -155,7 +155,7 @@ export const legalDocuments: LegalDocument[] = [
         "title": "Teknik altyapı ve izleme",
         "paragraphs": [
           "Web sitesi Netlify barındırma ve içerik dağıtım altyapısını kullanır. Siteye erişim sırasında teknik veriler bu altyapı tarafından işlenebilir. Form iletimi için ayrıca Resend ve alıcı e-posta hizmeti kullanılır. Resend depolanan verileri ABD’de tutar; Netlify ve alıcı posta hizmetinin altyapısı da yurt dışında veri işlenmesini içerebilir. Ayrıntılar KVKK Aydınlatma Metni’nde yer alır.",
-          "SAD uygulamasında reklam pikseli, ziyaretçi profillemesi ve analitik izleme aracı bulunmaz. Yazı tipleri ve görseller sitenin kendi adresinden sunulur. Bildirimin kapatıldığı bilgisi yalnızca tarayıcınızdaki sekme oturumunda hatırlanır; SAD sunucusuna gönderilmez."
+          "SAD uygulamasında reklam pikseli, ziyaretçi profillemesi ve analitik izleme aracı bulunmaz. Yazı tipleri ve görseller sitenin kendi adresinden sunulur. Bildirime ilişkin tercihiniz tarayıcınızdaki localStorage alanında sonraki ziyaretler için hatırlanır; SAD sunucusuna gönderilmez."
         ]
       },
       {
@@ -193,7 +193,7 @@ export const legalDocuments: LegalDocument[] = [
         "id": "tanim",
         "title": "Çerez ve tarayıcı depolaması nedir?",
         "paragraphs": [
-          "Çerezler, web siteleri tarafından tarayıcınızda tutulabilen küçük kayıtlardır. sessionStorage ise tarayıcıdaki sekme oturumuna bağlı bir depolama alanıdır; HTTP çerezi ile aynı teknoloji değildir. Bu sayfa, sitemizdeki bildirim kaydını da şeffaflık amacıyla açıklar."
+          "Çerezler, web siteleri tarafından tarayıcınızda tutulabilen küçük kayıtlardır. localStorage ise tarayıcıda ziyaretler arasında kalabilen bir depolama alanıdır; HTTP çerezi ile aynı teknoloji değildir. Bu sayfa, sitemizdeki bildirim kaydını da şeffaflık amacıyla açıklar."
         ]
       },
       {
@@ -208,7 +208,7 @@ export const legalDocuments: LegalDocument[] = [
         "id": "bildirim",
         "title": "Bildirimi kapatma tercihi",
         "paragraphs": [
-          "Çerez bilgilendirmesindeki “Kabul et” ve “Reddet” düğmelerinin ikisi de bildirimi kapatır. Yalnızca bildirimin kapatıldığı bilgisi sekme oturumu boyunca hatırlanır. Düğmelerden herhangi birine basmanız reklam, analitik veya yurt dışına veri aktarımı için açık rıza verdiğiniz anlamına gelmez.",
+          "Çerez bilgilendirmesindeki “Kabul et” ve “Reddet” düğmelerinin ikisi de bildirimi kapatır. Seçiminiz tarayıcınızdaki localStorage alanında saklanır; aynı tarayıcı ve site adresindeki sonraki ziyaretlerinizde bildirim yeniden gösterilmez. Düğmelerden herhangi birine basmanız reklam, analitik veya yurt dışına veri aktarımı için açık rıza verdiğiniz anlamına gelmez.",
           "Bu kayıt kişisel kimlik, e-posta, telefon, mesaj veya kullanıcı hareketi içermez. Kayıt SAD sunucusuna gönderilmez ve ziyaretçi profili oluşturmak için kullanılmaz."
         ]
       },
@@ -218,17 +218,17 @@ export const legalDocuments: LegalDocument[] = [
         "items": [
           `Kayıt adı: ${COOKIE_NOTICE_KEY}.`,
           "Sağlayıcı: SAD; kayıt sitenin kendi kökenindeki tarayıcı depolama alanında tutulur.",
-          "Amaç: kapatılan bilgilendirmeyi aynı sekme oturumu boyunca tekrar göstermemek.",
-          "Teknoloji: sessionStorage. İçerik: bildirim sürümü ve kapatma tercihi.",
-          "Süre: sekme oturumu. Gün veya ay bazında kalıcı saklama yapılmaz. Tarayıcının oturumu geri yükleme özelliği kaydın yeniden yüklenmesine yol açabilir.",
-          "Eski sad:cookie-notice:v1 localStorage kaydı varsa uygulama tarafından kaldırılır; yeni bir kalıcı localStorage kaydı oluşturulmaz."
+          "Amaç: tercih yapıldıktan sonra bilgilendirmeyi sonraki ziyaretlerde tekrar göstermemek.",
+          "Teknoloji: localStorage. İçerik: bildirim sürümü, kapatma bilgisi ve kabul/ret tercihi.",
+          "Süre: tarayıcının site verileri silinene kadar. Uygulama tarafından gün veya ay bazında otomatik süre sonu uygulanmaz.",
+          "Önceki sürümden kalan geçerli sekme oturumu kaydı varsa localStorage alanına taşınır. localStorage kullanılamıyorsa yalnızca mevcut sekme oturumu için sessionStorage kullanılmaya çalışılır."
         ]
       },
       {
         "id": "yonetim",
         "title": "Tercihinizi nasıl yönetebilirsiniz?",
         "paragraphs": [
-          "Tarayıcınızın site verilerini temizleyerek bildirim kaydını silebilirsiniz. Kayıt bulunmayan yeni bir sekme oturumunda bildirim yeniden gösterilir. Tarayıcı depolamasını engellemeniz halinde bildirim aynı oturumda tekrar görünebilir; site içeriğine erişiminiz buna bağlı değildir.",
+          "Tarayıcınızın site verilerini temizleyerek bildirim kaydını silebilirsiniz. Site verilerini silerseniz, farklı tarayıcı veya cihaz kullanırsanız ya da farklı alan adından girerseniz bildirim yeniden gösterilebilir. Tarayıcı depolamasını engellemeniz halinde tercih kalıcı hatırlanamayabilir; site içeriğine erişiminiz buna bağlı değildir.",
           "Harici bağlantılarla ziyaret ettiğiniz sitelerdeki çerezler, ilgili sitenin koşullarına tabidir. Sitemize yeni bir izleme teknolojisi eklenirse bu sayfa güncellenir ve gerektiğinde teknoloji çalıştırılmadan önce ayrı bir tercih mekanizması sunulur."
         ]
       }

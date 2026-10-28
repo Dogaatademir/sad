@@ -1,6 +1,6 @@
 # SAD hukuki metinler ve uygulama kaydı
 
-Güncelleme: 27 Ekim 2026. Bu dosya geliştirme notudur; web sitesinde gösterilmez.
+Güncelleme: 28 Ekim 2026. Bu dosya geliştirme notudur; web sitesinde gösterilmez.
 
 ## Tamamlanan içerik
 
@@ -10,7 +10,7 @@ Güncelleme: 27 Ekim 2026. Bu dosya geliştirme notudur; web sitesinde gösteril
 - Kullanıcı, hizmet ilişkisine dönüşmeyen taleplerin son iletişimden itibaren en geç bir yılda silinmesi uygulamasını benimsedi. İşletme bu süreyi gerçek kayıtlarında ve yedeklerinde uygulamalıdır; site bu silmeyi otomatik yapan bir müşteri sistemi içermez.
 - Form backend’i Netlify Functions ve Resend ile eklendi. Alıcı kullanıcı talebiyle bilgi@sitkiarslan.com olarak değiştirildi; sağlayıcı teyit edilmedi. Kullanıcı bu müşteri adresine hiçbir e-posta gönderilmemesini açıkça istedi. Bu adrese test yapılmadı; yeni açık gönderim talimatı olmadan test gönderilmemeli. Web metinleri gönderim akışını, sağlayıcıları ve yetkili alıcı kategorisini açıklıyor. Canlı aktivasyon için API anahtarı ve doğrulanmış gönderici ortam değişkenleri ile deploy gerekiyor; Önceki geliştirici adresiyle yerel gönderimler doğrulandı; müşteri adresine gönderim yapılmadı.
 - Uygulamada analitik, reklam pikseli, üyelik, ödeme veya dosya yükleme yok. Yazı tipleri ve görseller yerel; harita ve kaynaklar dış bağlantı.
-- Her iki bildirim düğmesi sad:cookie-notice:v2 anahtarını sessionStorage’a yazar. Kayıt kullanıcı kimliği veya izleme izni içermez. Sekme oturumu; eski v1 localStorage kaydı kaldırılır.
+- Her iki bildirim düğmesi sad:cookie-notice:v2 anahtarını localStorage’a yazar; kabul/ret tercihi otomatik süre sonu olmadan hatırlanır. Kayıt kullanıcı kimliği veya izleme izni içermez. Önceki geçerli sessionStorage kaydı taşınır; localStorage engelliyse sekme oturumu yedeği denenir. Site verileri silinirse veya farklı kökenden girilirse tekrar sorulabilir. Eski v1 kaydı temizlenir. Bildirim ve politika kalıcı saklama davranışına göre güncellendi.
 - Hukuki sayfaların noindex ve sitemap dışı olması arama görünürlüğü tercihi olarak korundu; bunlar taslak statüsü değildir.
 
 ## Yayın ve sağlayıcı düzeninde kalan işler

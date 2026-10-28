@@ -6,26 +6,38 @@ export function CookieNotice() {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     try {
+      const raw = window.localStorage.getItem(COOKIE_NOTICE_KEY);
+      const remembered = hasValidNoticePreference(raw);
+      if (remembered) {
+        setVisible(false);
+      } else {
+        if (raw) window.localStorage.removeItem(COOKIE_NOTICE_KEY);
+        // Preserve a dismissal made before preferences became persistent.
+        const previous = window.sessionStorage.getItem(COOKIE_NOTICE_KEY);
+        const migrated = hasValidNoticePreference(previous);
+        if (migrated && previous) window.localStorage.setItem(COOKIE_NOTICE_KEY, previous);
+        setVisible(!migrated);
+      }
       window.localStorage.removeItem(LEGACY_COOKIE_NOTICE_KEY);
     } catch {
-      // Persistent storage is used only to remove the previous notice record.
-    }
-    try {
-      const raw = window.sessionStorage.getItem(COOKIE_NOTICE_KEY);
-      const remembered = hasValidNoticePreference(raw);
-      if (raw && !remembered) window.sessionStorage.removeItem(COOKIE_NOTICE_KEY);
-      setVisible(!remembered);
-    } catch {
-      // Storage may be blocked. The notice still remains usable for this visit.
-      setVisible(true);
+      try {
+        setVisible(!hasValidNoticePreference(window.sessionStorage.getItem(COOKIE_NOTICE_KEY)));
+      } catch {
+        setVisible(true);
+      }
     }
   }, []);
 
-  function close() {
+  function close(choice: 'accepted' | 'rejected') {
+    const preference = JSON.stringify(createNoticePreference(choice));
     try {
-      window.sessionStorage.setItem(COOKIE_NOTICE_KEY, JSON.stringify(createNoticePreference()));
+      window.localStorage.setItem(COOKIE_NOTICE_KEY, preference);
     } catch {
-      // Closing never depends on access to browser storage.
+      try {
+        window.sessionStorage.setItem(COOKIE_NOTICE_KEY, preference);
+      } catch {
+        // Closing never depends on access to browser storage.
+      }
     }
     setVisible(false);
     if (document.activeElement instanceof HTMLElement && document.activeElement.closest('.cookie-notice')) {
@@ -37,11 +49,11 @@ export function CookieNotice() {
       <div className="cookie-notice-copy">
         <span className="eyebrow">SAD / GİZLİLİK</span>
         <h2 id="cookie-notice-heading">Çerezler hakkında.</h2>
-        <p id="cookie-notice-copy">Reklam ve analitik çerezleri kullanmıyoruz. Her iki seçenekte de bildirimin kapatıldığı bilgisi yalnızca bu sekmenin oturumu boyunca tarayıcınızda hatırlanır; izleme izni verilmez. <a href="/cerez-politikasi/">Çerez Politikası</a></p>
+        <p id="cookie-notice-copy">Reklam ve analitik çerezleri kullanmıyoruz. Bildirimin tekrar gösterilmemesi için tercihiniz bu tarayıcıda saklanır; izleme izni verilmez. <a href="/cerez-politikasi/">Çerez Politikası</a></p>
       </div>
       <div className="cookie-notice-actions">
-        <button type="button" className="cookie-notice-dismiss" onClick={close}>Reddet</button>
-        <button type="button" className="cookie-notice-remember" onClick={close}>Kabul et</button>
+        <button type="button" className="cookie-notice-dismiss" onClick={() => close('rejected')}>Reddet</button>
+        <button type="button" className="cookie-notice-remember" onClick={() => close('accepted')}>Kabul et</button>
       </div>
     </section>, document.body) : null;
 }
