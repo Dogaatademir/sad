@@ -18,7 +18,7 @@ export function HomePage() {
         <div className="hero-content">
           <h1 id="hero-heading"><span className="hero-line">Finansal Yönetim</span><span className="hero-line">Danışmanlığı.</span></h1>
           <div className="hero-message">
-            <p>Kredi geri ödemelerinde güçlük yaşayan veya yaşama ihtmiali olan işletmelerin ödeme kapasitesini yeniden kazanmasına ve faaliyetlerini sürdürmesine destek olmayı amaçlarız.</p>
+            <p>Kredi geri ödemelerinde güçlük yaşayan veya yaşama ihtimali olan işletmelerin ödeme kapasitesini yeniden kazanmasına ve faaliyetlerini sürdürmesine destek olmayı amaçlıyoruz.</p>
             <a className="hero-cta" href="/iletisim/">Bizimle iletişime geçin <ArrowIcon /></a>
           </div>
         </div>

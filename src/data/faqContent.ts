@@ -6,6 +6,10 @@ export const fyyQuestions: FaqQuestion[] = [
     "FYY’nin amacı, İlgili mevzuat çerçevesinde alınacak tedbirler ile borçluların geri ödeme yükümlülüklerini yerine getirebilmelerine ve istihdama katkıda bulunmaya devam etmelerine imkan verilmesini sağlamaktır."
   ],
   [
+    "FYY hangi işletmeler için uygundur?",
+    "FYY, borçlarının önemli bölümü finansal kuruluşlara olan, öz varlığı yükümlülüklerinden fazla olmakla beraber geri ödemeleri kısa vadeye yığılmış olan, nakit akımı uyumsuzluğu nedeniyle içine düştüğü geçici sıkışıklıktan çıkış için somut planı / kaynağı olan işletmeler için uygundur."
+  ],
+  [
     "FYY, tüm borçları kapsar mı?",
     "Hayır. FYY’nin odağında ilgili finansal kuruluşlara (Bankalar, Finansal Kiralama Şirketleri, Faktoring Şirketleri, Finansman Şirketleri) olan kredi borçları bulunur. "
   ],
@@ -48,6 +52,10 @@ export const fyyQuestions: FaqQuestion[] = [
   [
     "Vergi ve SGK borçları FYY kapsamında değerlendirilir mi?",
     "Hayır. FYY, finansal kuruluşlara olan kredi borçlarına yöneliktir; vergi ve SGK borçlarını kapsamaz."
+  ],
+  [
+    "FYY’ye başvurmuş olmak, bir işletmenin itibarına zarar verir mi?",
+    "FYY’ye başvurmak, borçlu olunan finansal kuruluşlara “şirketinizin finansal bir güçlük içinde olduğunun ve yapılandırma talebiniz bulunduğunun” bildirilmesidir. Kredilerinizin finansal kuruluşlar nezdinde “yapılandırılmış / yakın izleme” sınıfında takip edilmesi, kredi taksit ödemelerinin yapılamadığı, çeklerin karşılıksız kaldığı, piyasa ödemelerinin ertelendiği, maaşların ödenemediği alternatif senaryoya göre çok daha tercih edilebilir bir durumdur. Dolayısıyla, nakit akımlarında ve faaliyet döngülerinde bir sorun öngörülmeyen, kredi geri ödemelerinde bir gecikme yaşanması beklenmeyen veya alternatif çözümler yaratma kabiliyeti olan işletmeler FYY ile ilgilenmemelidir."
   ],
   [
     "Ankara dışında faaliyet gösteren işletmelere de hizmet veriliyor mu?",
