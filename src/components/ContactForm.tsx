@@ -34,7 +34,12 @@ export function ContactForm() {
       });
       if (response.status === 429) throw new Error('Çok sayıda deneme yaptınız. Lütfen iki dakika sonra yeniden deneyin.');
       const result = await response.json();
-      if (!response.ok) throw new Error(typeof result.message === 'string' ? result.message : 'Mesaj gönderilemedi. Lütfen yeniden deneyin.');
+      if (!response.ok) {
+        const message = typeof result.message === 'string' ? result.message : 'Mesaj gönderilemedi. Lütfen yeniden deneyin.';
+        const reference = response.status >= 500 && typeof result.requestId === 'string'
+          && /^[a-f0-9-]{36}$/i.test(result.requestId) ? ` Referans: ${result.requestId}` : '';
+        throw new Error(message + reference);
+      }
       setStatus('success');
       setNotice('Mesajınız iletildi. En kısa sürede sizinle iletişime geçeceğiz.');
       form.reset();

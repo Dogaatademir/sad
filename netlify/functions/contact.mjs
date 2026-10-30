@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { renderContactEmail } from '../lib/contact-email.mjs';
+import { createContactResponder } from '../lib/contact-diagnostics.mjs';
 
 const recipient = 'bilgi@sitkiarslan.com';
 const allowedOrigins = new Set([
@@ -9,9 +10,6 @@ const allowedOrigins = new Set([
 ]);
 const maxBytes = 24_000;
 const emailPattern = /^[^\s@<>\x00-\x1f]+@[^\s@<>\x00-\x1f]+\.[^\s@<>\x00-\x1f]+$/;
-const reply = (status, message) => Response.json({ message }, {
-  status, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' },
-});
 
 async function readBody(request) {
   if (Number(request.headers.get('content-length')) > maxBytes) throw new Error('too-large');
@@ -33,6 +31,7 @@ async function readBody(request) {
 }
 
 export default async function contact(request) {
+  const reply = createContactResponder();
   if (request.method !== 'POST') return reply(405, 'Bu işlem desteklenmiyor.');
   const origin = request.headers.get('origin');
   const local = process.env.NETLIFY_DEV === 'true' && origin === 'http://localhost:8888';
@@ -67,7 +66,7 @@ export default async function contact(request) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.CONTACT_FROM_EMAIL;
   if (!apiKey || !from || /[\r\n]/.test(from)) {
-    return reply(503, 'Form şu anda kullanılamıyor. Lütfen telefon veya e-posta ile ulaşın.');
+    return reply(503, 'Form şu anda kullanılamıyor. Lütfen telefon veya e-posta ile ulaşın.', { errorType: 'configuration_missing' });
   }
   // User content is escaped in HTML; text remains available as a fallback.
   const { html, text, attachments } = renderContactEmail(fields);
@@ -84,15 +83,18 @@ export default async function contact(request) {
       signal: AbortSignal.timeout(10_000),
     });
     if (!result.ok) {
-      // Do not log message content, visitor details, API keys or provider response bodies.
-      console.error('contact: Resend request failed', result.status);
-      return reply(502, 'Mesaj gönderilemedi. Lütfen biraz sonra yeniden deneyin veya bizi arayın.');
+      return reply(502, 'Mesaj gönderilemedi. Lütfen biraz sonra yeniden deneyin veya bizi arayın.',
+        { errorType: 'provider_http_error', providerStatus: result.status });
     }
     const data = await result.json();
-    if (typeof data.id !== 'string' || !data.id) throw new Error('invalid-provider-response');
+    if (!data || typeof data.id !== 'string' || !data.id) {
+      return reply(502, 'Gönderim doğrulanamadı. Lütfen yeniden deneyin veya bizi arayın.', { errorType: 'provider_invalid_response' });
+    }
     return reply(200, 'Mesajınız iletildi. En kısa sürede sizinle iletişime geçeceğiz.');
-  } catch {
-    return reply(502, 'Gönderim doğrulanamadı. Lütfen yeniden deneyin veya bizi arayın.');
+  } catch (error) {
+    const errorType = error?.name === 'TimeoutError' || error?.name === 'AbortError' ? 'timeout'
+      : error instanceof SyntaxError ? 'provider_invalid_response' : 'network_error';
+    return reply(502, 'Gönderim doğrulanamadı. Lütfen yeniden deneyin veya bizi arayın.', { errorType });
   }
 }
 

@@ -1,13 +1,27 @@
-import { test, afterEach } from 'node:test';
+import { test, beforeEach, afterEach } from 'node:test';
 import assert from 'node:assert/strict';
 import contact, { config } from '../netlify/functions/contact.mjs';
 import { renderContactEmail } from '../netlify/lib/contact-email.mjs';
 
 const originalFetch = globalThis.fetch;
+const originalInfo = console.info;
+const originalError = console.error;
+const previousWebhook = process.env.SECURITY_ALERT_WEBHOOK_URL;
+let logRecords;
+beforeEach(() => {
+  logRecords = [];
+  console.info = console.error = value => logRecords.push(JSON.parse(value));
+  delete process.env.SECURITY_ALERT_WEBHOOK_URL;
+  globalThis.fetch = async () => { throw new Error('NETWORK FORBIDDEN IN TESTS'); };
+});
 const previousKey = process.env.RESEND_API_KEY;
 const previousFrom = process.env.CONTACT_FROM_EMAIL;
 afterEach(() => {
   globalThis.fetch = originalFetch;
+  console.info = originalInfo;
+  console.error = originalError;
+  if (previousWebhook === undefined) delete process.env.SECURITY_ALERT_WEBHOOK_URL;
+  else process.env.SECURITY_ALERT_WEBHOOK_URL = previousWebhook;
   for (const [key, value] of [['RESEND_API_KEY', previousKey], ['CONTACT_FROM_EMAIL', previousFrom]]) {
     if (value === undefined) delete process.env[key]; else process.env[key] = value;
   }
@@ -49,6 +63,7 @@ test('missing server configuration fails closed', async () => {
   delete process.env.RESEND_API_KEY;
   delete process.env.CONTACT_FROM_EMAIL;
   assert.equal((await contact(request())).status, 503);
+  assert.equal(logRecords.at(-1).errorType, 'configuration_missing');
 });
 test('both domains send branded HTML, plain text and visitor reply-to to the fixed recipient', async () => {
   configure();
@@ -105,8 +120,15 @@ test('provider errors and network failure never report success or leak provider 
   assert.ok(!(await response.text()).includes('private-provider-detail'));
   globalThis.fetch = async () => { throw new Error('network failure'); };
   assert.equal((await contact(request())).status, 502);
+  assert.equal(logRecords.at(-1).errorType, 'network_error');
   globalThis.fetch = async () => Response.json({});
   assert.equal((await contact(request())).status, 502);
+  assert.equal(logRecords.at(-1).errorType, 'provider_invalid_response');
+  globalThis.fetch = async () => { throw new DOMException('PRIVATE exception message', 'TimeoutError'); };
+  assert.equal((await contact(request())).status, 502);
+  assert.equal(logRecords.at(-1).errorType, 'timeout');
+  assert.ok(!JSON.stringify(logRecords).includes('PRIVATE'));
+  assert.ok(!JSON.stringify(logRecords).includes(fields.email));
 });
 test('deployment config includes platform rate limiting', () => {
   assert.equal(config.path, '/api/contact');

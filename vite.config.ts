@@ -26,6 +26,17 @@ function siteMetadata(): Plugin {
       }
     },
     configurePreviewServer(server) {
+      // Apply the exact generated production policy during local security QA.
+      server.middlewares.use(async (_request, response, next) => {
+        try {
+          const headers = await readFile(resolve(server.config.root, server.config.build.outDir, '_headers'), 'utf8');
+          for (const line of headers.split('\n')) {
+            const match = line.match(/^  ([\w-]+): (.+)$/);
+            if (match) response.setHeader(match[1], match[2]);
+          }
+          next();
+        } catch (error) { next(error); }
+      });
       // Match the canonical addresses in local production preview as well.
       server.middlewares.use((request, response, next) => {
         const url = new URL(request.url ?? '/', 'http://localhost');
